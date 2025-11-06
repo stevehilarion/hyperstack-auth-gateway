@@ -254,10 +254,10 @@ jobs:
           JWT_KID: dev-key-1
           JWT_ISS: https://auth.hyperstack.local
           JWT_AUD: hyperstack-api
+          AUTH_SERVICE_URL: http://127.0.0.1:3001   # ⬅️ FALTABA
           NODE_OPTIONS: --enable-source-maps --trace-uncaught
         run: |
           set -euo pipefail
-
           AUTH_JS="apps/auth-service/dist/main.js"
           GW_JS="apps/gateway/dist/main.js"
           AUTH_TS="apps/auth-service/src/main.ts"
@@ -265,12 +265,11 @@ jobs:
 
           start_app() {
             local name="$1" js="$2" ts="$3" tsproj="$4" log="$5"
-
             if [[ -f "$js" ]]; then
-              echo "[$name] JS -> $js"
+              >&2 echo "[$name] JS -> $js"
               nohup setsid node "$js" >"$log" 2>&1 < /dev/null &
             else
-              echo "[$name] TS -> $ts (ts-node)"
+              >&2 echo "[$name] TS -> $ts (ts-node)"
               TS_NODE_TRANSPILE_ONLY=true \
               TS_NODE_FILES=true \
               TS_NODE_PROJECT="$tsproj" \
@@ -281,7 +280,7 @@ jobs:
                 -r tsconfig-paths/register \
                 "$ts" >"$log" 2>&1 < /dev/null &
             fi
-            echo $!
+            echo "$!"   # ⬅️ SOLO imprime el PID
           }
 
           AUTH_PID="$(start_app "auth-service" "$AUTH_JS" "$AUTH_TS" "apps/auth-service/tsconfig.app.json" "auth.log")"
