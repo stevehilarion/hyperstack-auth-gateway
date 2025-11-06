@@ -1,90 +1,237 @@
-# Hyperstack
+# Hyperstack — Gateway + Auth Service (RS256, JWKS, Redis, Prisma)
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+Plataforma de autenticación mínima y lista para producción: un **Gateway HTTP (NestJS)** delante de un **Auth Service (NestJS + Prisma + Redis)** que emite y valida **JWT RS256** (access/refresh) con **rotación deslizante** y **detección de reuso**. Incorpora **throttling** por **IP** y `x-device-id`, endpoints de **salud** y **métricas** para observabilidad, y **CI** con build y pruebas (unitarias/E2E).
+**Objetivo**: proveer un esqueleto sólido y verificable para proyectos que necesiten login y gestión de sesiones con buenas prácticas desde el principio.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+---
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Índice
+- [Arquitectura](#arquitectura)
+- [Requisitos](#requisitos)
+- [Endpoints](#endpoints)
+- [Quickstart (dev)](#quickstart-dev)
+- [Flujos](#flujos)
+- [Throttling](#throttling)
+- [Seguridad (JWT/JWKS)](#seguridad-jwtjwks)
+- [Tests](#tests)
+- [Observabilidad](#observabilidad)
+- [CI](#ci)
+- [Troubleshooting](#troubleshooting)
+- [Licencia](#licencia)
 
-## Finish your CI setup
+---
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/0TDSsBuKqk)
-
-
-## Generate a library
-
-```sh
-npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
+## Arquitectura
 ```
-
-## Run tasks
-
-To build the library use:
-
-```sh
-npx nx build pkg1
-```
-
-To run any task with Nx use:
-
-```sh
-npx nx <target> <project-name>
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Versioning and releasing
-
-To version and release the library use
+Client
+  │
+  │ HTTP (Bearer access)         ┌───────────────┐
+  ├───────────────▶  Gateway  ──▶│  Auth Service │──┐
+  │ /api/auth/*                  └───────────────┘   │
+  │        │                     Prisma              │
+  │        │              ┌─────────────────┐        │
+  │        └─── JWKS ───▶│  /jwks.json      │        │
+  │                       └─────────────────┘        │
+  │                                                  ▼
+  │                                          ┌──────────┐
+  │                                          │ Postgres │
+  │                                          └──────────┘
+  │                                                 │
+  │                                          ┌──────────┐
+  └──────────────── Metrics/OTEL ───────────▶│  Redis  │
+                                             └──────────┘
 
 ```
-npx nx release
-```
+---
+- **Gateway**: expone `/api/auth/*`, valida Access JWT con **JWKS** (RS256).
+- **Auth Service**: emite Access/Refresh, sliding refresh, reuse-detection, sesiones en Redis.
+- **Postgres**: usuarios.
+- **Redis**: sesiones, locks y throttling.
+- **Prometheus/OTEL**: métricas y trazas opcionales.
 
-Pass `--dry-run` to see what would happen without actually releasing the library.
+---
 
-[Learn more about Nx release &raquo;](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Keep TypeScript project references up to date
-
-Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
-
-To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
-
-```sh
-npx nx sync
-```
-
-You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
-
-```sh
-npx nx sync:check
-```
-
-[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
+## Requisitos
+- Node.js 20
+- pnpm 9
+- Docker (para Postgres/Redis/observabilidad)
+- OpenSSL (para llaves dev)
 
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Install Nx Console
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Endpoints
 
-## Useful links
+`GET /api/auth/health` — estado + deps (db/redis).
 
-Learn more:
+`POST /api/auth/register` `{ email, password, name? }` → 201.
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+`POST /api/auth/login` `{ email, password }` → accessToken, refreshToken.
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+`POST /api/auth/refresh` `{ refreshToken }` → rotación (sliding) + reuse-detection.
+
+`POST /api/auth/logout` `{ refreshToken }` → invalida refresh.
+
+`GET /api/auth/me` (Bearer access) → `{ id, email, name }`.
+
+`GET /api/auth/.well-known/jwks.json` → JWKS público (RS256).
+
+### Headers útiles
+
+`x-device-id`: **obligatorio** para throttling/sesiones decentes.
+
+`x-forwarded-for`: respeta IP del cliente detrás de proxy/LB.
+
+## Quickstart (dev)
+
+```bash
+pnpm i
+
+# Infra local
+docker compose up -d postgres
+
+# Llaves dev
+mkdir -p keys
+openssl genrsa -out keys/private.pem 2048
+openssl rsa -in keys/private.pem -pubout -out keys/public.pem
+
+# Prisma
+pnpm --filter @hyperstack/auth-service prisma:generate
+AUTH_DATABASE_URL=postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth \
+pnpm --filter @hyperstack/auth-service prisma migrate deploy
+
+# Arranque
+pnpm -w nx run @hyperstack/auth-service:serve
+pnpm -w nx run @hyperstack/gateway:serve
+ ```
+
+### Smoke rápido
+ ```bash
+## Health
+curl -sS http://localhost:3000/api/auth/health | jq
+
+# Registro
+curl -sS http://localhost:3000/api/auth/register \
+  -H 'content-type: application/json' \
+  -H 'x-device-id: dev-1' \
+  -d '{"email":"user@test.local","password":"12345678","name":"User"}' | jq
+
+# Login
+LOGIN=$(curl -sS http://localhost:3000/api/auth/login \
+  -H 'content-type: application/json' \
+  -H 'x-device-id: dev-1' \
+  -d '{"email":"user@test.local","password":"12345678"}')
+ACCESS=$(jq -r .accessToken <<<"$LOGIN")
+REFRESH=$(jq -r .refreshToken <<<"$LOGIN")
+
+# Me
+curl -sS http://localhost:3000/api/auth/me \
+  -H "authorization: Bearer $ACCESS" | jq
+
+# Refresh (sliding)
+ROT=$(curl -sS http://localhost:3000/api/auth/refresh \
+  -H 'content-type: application/json' \
+  -H 'x-device-id: dev-1' \
+  -d "{\"refreshToken\":\"$REFRESH\"}")
+ACCESS=$(jq -r .accessToken <<<"$ROT")
+REFRESH=$(jq -r .refreshToken <<<"$ROT")
+
+# Logout
+curl -sS http://localhost:3000/api/auth/logout \
+  -H 'content-type: application/json' \
+  -d "{\"refreshToken\":\"$REFRESH\"}" | jq
+ ```
+# Flujos
+
+- **Login** → crea sesión (Redis) y devuelve `access/refresh`.
+
+- **Refresh** → rota el refresh (sliding). Reuso de refresh viejo -> **reuse-detection** y revoca la familia.
+
+- **Logout** (por refresh) -> invalida ese refresh. `logout-all` existe en el servicio; el gateway expone lo esencial.
+
+
+# Throttling
+
+- Clave compuesta: `ruta+IP` y `ruta+deviceId`.
+
+- Respuestas con `429` y header x-ratelimit-limit.
+
+- `x-device-id` es obligatorio para clientes reales (móvil/web nativo).
+
+- Respeta `x-forwarded-for` si hay LB/Ingress.
+
+#### Archivos:
+
+Gateway: `apps/gateway/src/infrastructure/security/throttling.ts`
+
+Auth: `apps/auth-service/src/infrastructure/security/throttling.ts`
+
+
+# Seguridad (JWT/JWKS)
+
+- RS256 con llaves en `keys/` solo para **dev/CI**. En prod: KMS/HSM o secret manager y rotación real.
+
+- JWKS: `GET /api/auth/.well-known/jwks.json` (expone kid = `JWT_KID`).
+
+- `aud`/`iss` estrictos y TTLs configurables.
+
+---
+
+# Tests
+ ```bash
+## Unit
+pnpm test:unit:auth
+pnpm test:unit:gateway
+pnpm test:unit     # ambos
+
+## E2E mínimos (gateway)
+pnpm test:e2e
+ ```
+#### Cubre:
+
+- RS256 firma/verificación (auth-service).
+
+- Validación de DTOs (`class-validator`).
+
+- Throttling utils (gateway).
+
+- E2E: health, login, refresh, logout, rotación y reuse-detection.
+
+# Observabilidad
+
+`/metrics` Prometheus (gateway y auth): latencias, contadores.
+
+OTEL opcional vía `OTEL_EXPORTER_OTLP_ENDPOINT` (trazas de requests y deps db/redis).
+
+# CI
+
+#### Workflow: `.github/workflows/ci.yml`
+
+- Levanta Postgres/Redis.
+
+- `pnpm i` con lockfile.
+
+- Prisma generate + migrate deploy (auth).
+
+- Llaves dummy (solo para CI).
+
+- Lint / Typecheck / Tests / Build (ambas apps).
+
+- Sube `apps/*/dist` como artefactos.
+
+
+# Troubleshooting
+
+- **401 en `/me` con access nuevo** → revisa `JWT_ISS`/`JWT_AUD` y que el gateway consuma el JWKS correcto.
+
+- **`refresh` devuelve 401** → reusaste un refresh viejo tras rotación -> **reuse-detection** revoca la familia.
+
+- **429 inesperados** → revisa `x-device-id` y `x-forwarded-for`; con proxy local, activa `trust proxy`.
+
+- **Prisma no conecta** → valida `AUTH_DATABASE_URL` y salud de Postgres del compose.
+
+- **JWKS 404/vacío** → usa el endpoint del gateway: `/api/auth/.well-known/jwks.json` (debe mostrar `kid=JWT_KID`).
+
+# Licencia
+MIT License, See the LICENSE file for more information..
