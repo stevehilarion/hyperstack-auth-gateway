@@ -171,22 +171,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Download build artifacts
+        if: ${{ !env.ACT }}
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: .
+
+      - name: ACT detected → skip artifacts, run TS fallback
+        if: ${{ env.ACT }}
+        run: echo "Running under ACT; skipping artifacts download and using TS fallback."
+
       - uses: pnpm/action-setup@v4
         with: { version: 9.12.0 }
 
       - uses: actions/setup-node@v4
         with: { node-version: 20, cache: pnpm }
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install deps
+        run: |
+          set -euo pipefail
+          pnpm install --frozen-lockfile
 
       - name: Install CLI deps (pg_isready, nc, jq)
         run: |
+          set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y postgresql-client netcat-openbsd jq
 
       # ----- Espera servicios -----
       - name: Wait for Postgres
         run: |
+          set -euo pipefail
           for i in {1..60}; do
             pg_isready -h 127.0.0.1 -p 55433 -U hyperstack -d hyperstack_auth && exit 0
             sleep 2
@@ -195,6 +211,7 @@ jobs:
 
       - name: Wait for Redis
         run: |
+          set -euo pipefail
           for i in {1..60}; do
             (echo PING | nc -w 1 127.0.0.1 56380 | grep -q PONG) && exit 0 || true
             sleep 2
@@ -204,26 +221,25 @@ jobs:
       # ----- Claves JWT dummy -----
       - name: Generate JWT keys (CI)
         run: |
+          set -euo pipefail
           mkdir -p keys
           openssl genrsa -out keys/private.pem 2048
           openssl rsa -in keys/private.pem -pubout -out keys/public.pem
 
-      # ----- Prisma  -----
+      # ----- Prisma -----
       - name: Prisma Generate (auth-service)
-        run: pnpm --filter @hyperstack/auth-service prisma:generate
+        run: |
+          set -euo pipefail
+          pnpm --filter @hyperstack/auth-service prisma:generate
 
-      # ----- Migraciones para e2e -----
       - name: Prisma Migrate deploy (auth-service)
         env:
           AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55433/hyperstack_auth
-        run: pnpm --filter @hyperstack/auth-service exec prisma migrate deploy --schema=./prisma/schema.prisma
-
-      # ----- Build con Nx -----
-      - name: Build services
         run: |
-          pnpm -w nx build auth-service --configuration=production --no-cloud
-          pnpm -w nx build gateway --configuration=production --no-cloud
+          set -euo pipefail
+          pnpm --filter @hyperstack/auth-service exec prisma migrate deploy --schema=./prisma/schema.prisma
 
+      # ----- Start -----
       - name: Start auth-service + gateway (wait & logs)
         shell: bash
         env:
@@ -241,9 +257,6 @@ jobs:
           NODE_OPTIONS: --enable-source-maps --trace-uncaught
         run: |
           set -euo pipefail
-
-          echo "Node: $(node -v)"
-          echo "Working dir: $(pwd)"
 
           AUTH_JS="apps/auth-service/dist/main.js"
           GW_JS="apps/gateway/dist/main.js"
@@ -297,7 +310,7 @@ jobs:
 
       - name: Smoke check
         run: |
-          set -e
+          set -euo pipefail
           curl -fsS http://127.0.0.1:3000/api/auth/health | jq .
 
       - name: Run E2E
@@ -305,7 +318,9 @@ jobs:
           BASE_URL: http://127.0.0.1:3000
           API_BASE_URL: http://127.0.0.1:3000
           GATEWAY_URL: http://127.0.0.1:3000
-        run: pnpm test:e2e
+        run: |
+          set -euo pipefail
+          pnpm test:e2e
 
       - name: Upload logs on failure
         if: ${{ failure() && !env.ACT }}
