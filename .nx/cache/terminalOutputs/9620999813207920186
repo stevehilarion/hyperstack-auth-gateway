@@ -1,5 +1,0 @@
-> webpack-cli build --node-env=production
-
-✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
-chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 637 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
-webpack compiled [1m[32msuccessfully[39m[22m (8e135acd5586e90d)

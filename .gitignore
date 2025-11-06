@@ -37,3 +37,6 @@ docker-data/
 # ─── SO / IDE ─────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+
+# Nx cache
+.nx/

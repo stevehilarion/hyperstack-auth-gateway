@@ -1,11 +1,0 @@
-> webpack-cli build --node-env=production
-
-chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 47.5 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
-
-[1m[31mERROR[39m[22m in [1m./src/app/bootstrap/bootstrap.module.ts[39m[22m [1m[32m12:29-84[39m[22m
-[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '../../infrastructure/http/auth-proxy.service' in '/home/steven/hyperstack/apps/gateway/src/app/bootstrap'[39m[22m
-
-[1m[31mERROR[39m[22m in [1m./src/interfaces/http/controllers/auth.controller.ts[39m[22m [1m[32m8:29-87[39m[22m
-[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '../../../infrastructure/http/auth-proxy.service' in '/home/steven/hyperstack/apps/gateway/src/interfaces/http/controllers'[39m[22m
-
-webpack compiled with [1m[31m2 errors[39m[22m (a57f20a52cd8410b)
