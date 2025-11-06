@@ -1,10 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -20,57 +17,19 @@
       "{workspaceRoot}/jest.preset.js"
     ]
   },
-  "nxCloudId": "68fa658643a472003c10c810",
   "plugins": [
-    {
-      "plugin": "@nx/js/typescript",
-      "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
-        }
-      }
-    },
-    {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps",
-        "serveStaticTargetName": "serve-static"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      },
-      "exclude": [
-        "apps-e2e/**/*",
-        "apps/services-e2e/**/*"
-      ]
-    }
+      "options": { "targetName": "test" },
+      "exclude": ["apps-e2e/**/*", "apps/services-e2e/**/*"]
+    },
+    { "plugin": "@nx/js" }
   ],
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "default",
-        "{workspaceRoot}/jest.preset.js"
-      ]
+      "inputs": ["default", "{workspaceRoot}/jest.preset.js"]
     },
     "lint": {
       "inputs": [

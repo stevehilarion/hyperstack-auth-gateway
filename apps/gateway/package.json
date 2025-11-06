@@ -8,69 +8,48 @@
       "build": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "webpack-cli build",
-          "args": ["--node-env=production"],
-          "cwd": "apps/gateway"
+          "command": "pnpm exec tsc -p apps/gateway/tsconfig.app.json"
         },
         "configurations": {
           "development": {
-            "args": ["--node-env=development"]
-          }
-        }
-      },
-      "prune-lockfile": {
-        "dependsOn": ["build"],
-        "cache": true,
-        "executor": "@nx/js:prune-lockfile",
-        "outputs": [
-          "{workspaceRoot}/apps/gateway/dist/package.json",
-          "{workspaceRoot}/apps/gateway/dist/pnpm-lock.yaml"
-        ],
-        "options": {
-          "buildTarget": "build"
-        }
-      },
-      "copy-workspace-modules": {
-        "dependsOn": ["build"],
-        "cache": true,
-        "outputs": ["{workspaceRoot}/apps/gateway/dist/workspace_modules"],
-        "executor": "@nx/js:copy-workspace-modules",
-        "options": {
-          "buildTarget": "build"
-        }
-      },
-      "prune": {
-        "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
-        "executor": "nx:noop"
-      },
-      "serve": {
-        "continuous": true,
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": ["build"],
-        "options": {
-          "buildTarget": "gateway:build",
-          "runBuildTargetDependencies": false
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "gateway:build:development"
+            "command": "pnpm exec tsc -p apps/gateway/tsconfig.app.json --sourceMap"
           },
           "production": {
-            "buildTarget": "gateway:build:production"
+            "command": "pnpm exec tsc -p apps/gateway/tsconfig.app.json"
           }
-        }
+        },
+        "defaultConfiguration": "production"
       },
-      "test": {
-        "options": { "passWithNoTests": true }
+      "serve": {
+        "executor": "nx:run-commands",
+        "dependsOn": ["build"],
+        "options": {
+          "command": "node apps/gateway/dist/main.js"
+        },
+        "configurations": {
+          "development": {
+            "command": "node --enable-source-maps apps/gateway/dist/main.js"
+          },
+          "production": {
+            "command": "node apps/gateway/dist/main.js"
+          }
+        },
+        "defaultConfiguration": "development"
       },
       "typecheck": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "tsc --project apps/gateway/tsconfig.app.json --noEmit"
+          "command": "pnpm exec tsc --project apps/gateway/tsconfig.app.json --noEmit"
         }
+      },
+      "test": {
+        "options": { "passWithNoTests": true }
       }
     }
+  },
+  "scripts": {
+    "build": "pnpm -w nx build gateway",
+    "serve": "pnpm -w nx serve gateway"
   },
   "dependencies": {
     "@opentelemetry/api": "^1.9.0",

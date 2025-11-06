@@ -50,7 +50,7 @@ export class AuthController {
     return payload.sub as string;
   }
 
-  @Throttle({ limit: 10, ttl: 60_000 })
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
   @Post('register')
   async register(@Body() body: RegisterDto, @Req() req: Request) {
     const user = await this.registerUser.execute({
@@ -65,7 +65,7 @@ export class AuthController {
     return { accessToken, refreshToken: refresh };
   }
 
-  @Throttle({ limit: 20, ttl: 60_000 })
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
   @Post('login')
   async login(@Body() body: LoginDto, @Req() req: Request) {
     const user = await this.loginUser.execute({ email: body.email, password: body.password });
@@ -92,7 +92,7 @@ export class AuthController {
     return { id: u.id, email: u.email, name: u.name ?? null };
   }
 
-  @Throttle({ limit: 60, ttl: 60_000 })
+  @Throttle({ default: { limit: 60, ttl: 60_000 } })
   @HttpCode(200)
   @Post('refresh')
   async refresh(@Body() body: RefreshDto, @Req() req: Request) {
@@ -139,7 +139,7 @@ export class AuthController {
     return { ok: true, revoked: res.count };
   }
 
-  @Throttle({ limit: 20, ttl: 60_000 })
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
   @Get('sessions')
   async sessions(@Headers('authorization') auth?: string) {
     const userId = this.userIdFromAuthHeader(auth);
@@ -147,7 +147,7 @@ export class AuthController {
     return list;
   }
 
-  @Throttle({ limit: 20, ttl: 60_000 })
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
   @Post('sessions/revoke')
   async revokeSession(@Headers('authorization') auth?: string, @Body('sid') sid?: string) {
     const userId = this.userIdFromAuthHeader(auth);

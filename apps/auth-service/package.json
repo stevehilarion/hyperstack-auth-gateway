@@ -8,78 +8,57 @@
       "build": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "webpack-cli build",
-          "args": [
-            "--node-env=production"
-          ],
-          "cwd": "apps/auth-service"
+          "command": "pnpm exec tsc -p apps/auth-service/tsconfig.app.json"
         },
         "configurations": {
           "development": {
-            "args": [
-              "--node-env=development"
-            ]
+            "command": "pnpm exec tsc -p apps/auth-service/tsconfig.app.json --sourceMap"
+          },
+          "production": {
+            "command": "pnpm exec tsc -p apps/auth-service/tsconfig.app.json"
           }
-        }
+        },
+        "defaultConfiguration": "production"
+      },
+      "serve": {
+        "executor": "nx:run-commands",
+        "dependsOn": ["build"],
+        "options": {
+          "command": "node apps/auth-service/dist/main.js"
+        },
+        "configurations": {
+          "development": {
+            "command": "node --enable-source-maps apps/auth-service/dist/main.js"
+          },
+          "production": {
+            "command": "node apps/auth-service/dist/main.js"
+          }
+        },
+        "defaultConfiguration": "development"
       },
       "prune-lockfile": {
-        "dependsOn": [
-          "build"
-        ],
+        "dependsOn": ["build"],
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
           "{workspaceRoot}/apps/auth-service/dist/package.json",
           "{workspaceRoot}/apps/auth-service/dist/pnpm-lock.yaml"
         ],
-        "options": {
-          "buildTarget": "build"
-        }
+        "options": { "buildTarget": "build" }
       },
       "copy-workspace-modules": {
-        "dependsOn": [
-          "build"
-        ],
+        "dependsOn": ["build"],
         "cache": true,
-        "outputs": [
-          "{workspaceRoot}/apps/auth-service/dist/workspace_modules"
-        ],
+        "outputs": ["{workspaceRoot}/apps/auth-service/dist/workspace_modules"],
         "executor": "@nx/js:copy-workspace-modules",
-        "options": {
-          "buildTarget": "build"
-        }
+        "options": { "buildTarget": "build" }
       },
       "prune": {
-        "dependsOn": [
-          "prune-lockfile",
-          "copy-workspace-modules"
-        ],
+        "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
         "executor": "nx:noop"
       },
-      "serve": {
-        "continuous": true,
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
-        "options": {
-          "buildTarget": "auth-service:build",
-          "runBuildTargetDependencies": false
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "auth-service:build:development"
-          },
-          "production": {
-            "buildTarget": "auth-service:build:production"
-          }
-        }
-      },
       "test": {
-        "options": {
-          "passWithNoTests": true
-        }
+        "options": { "passWithNoTests": true }
       }
     }
   },
@@ -125,7 +104,7 @@
     "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/ms": "^2.1.0",
-    "copy-webpack-plugin": "^13.0.1",
-    "prisma": "^6.18.0"
+    "prisma": "^6.18.0",
+    "typescript": "^5.6.0"
   }
 }
