@@ -1,18 +1,23 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2021",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+
+    "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "types": ["node"],
-    "typeRoots": ["./src/types", "../../node_modules/@types"],
-    "rootDir": "src",
-    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "useDefineForClassFields": false,
+
+    "types": ["node"],
+    "typeRoots": ["./src/types", "../../node_modules/@types"],
+
     "strict": true,
     "skipLibCheck": true,
-
     "resolveJsonModule": true,
     "esModuleInterop": true
   },

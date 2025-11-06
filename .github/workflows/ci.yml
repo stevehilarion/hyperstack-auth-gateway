@@ -139,3 +139,179 @@ jobs:
           path: |
             apps/auth-service/dist
             apps/gateway/dist
+
+  # E2E
+  e2e:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      NX_SKIP_NX_CLOUD: 'true'
+      NX_DAEMON: 'false'
+      NX_NO_NATIVE_CACHE: 'true'
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: hyperstack_auth
+          POSTGRES_USER: hyperstack
+          POSTGRES_PASSWORD: hyperstack
+        ports: [ "55433:5432" ]
+        options: >-
+          --health-cmd="pg_isready -U hyperstack -d hyperstack_auth"
+          --health-interval=5s --health-timeout=3s --health-retries=30
+
+      redis:
+        image: redis:7-alpine
+        ports: [ "56380:6379" ]
+        options: >-
+          --health-cmd="redis-cli ping || exit 1"
+          --health-interval=5s --health-timeout=3s --health-retries=30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with: { version: 9.12.0 }
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: pnpm }
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Install CLI deps (pg_isready, nc, jq)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client netcat-openbsd jq
+
+      # ----- Espera servicios -----
+      - name: Wait for Postgres
+        run: |
+          for i in {1..60}; do
+            pg_isready -h 127.0.0.1 -p 55433 -U hyperstack -d hyperstack_auth && exit 0
+            sleep 2
+          done
+          echo "Postgres no respondió a tiempo"; exit 1
+
+      - name: Wait for Redis
+        run: |
+          for i in {1..60}; do
+            (echo PING | nc -w 1 127.0.0.1 56380 | grep -q PONG) && exit 0 || true
+            sleep 2
+          done
+          echo "Redis no respondió a tiempo"; exit 1
+
+      # ----- Claves JWT dummy -----
+      - name: Generate JWT keys (CI)
+        run: |
+          mkdir -p keys
+          openssl genrsa -out keys/private.pem 2048
+          openssl rsa -in keys/private.pem -pubout -out keys/public.pem
+
+      # ----- Prisma  -----
+      - name: Prisma Generate (auth-service)
+        run: pnpm --filter @hyperstack/auth-service prisma:generate
+
+      # ----- Migraciones para e2e -----
+      - name: Prisma Migrate deploy (auth-service)
+        env:
+          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55433/hyperstack_auth
+        run: pnpm --filter @hyperstack/auth-service exec prisma migrate deploy --schema=./prisma/schema.prisma
+
+      # ----- Build con Nx -----
+      - name: Build services
+        run: |
+          pnpm -w nx build auth-service --configuration=production --no-cloud
+          pnpm -w nx build gateway --configuration=production --no-cloud
+
+      - name: Start auth-service + gateway (wait & logs)
+        shell: bash
+        env:
+          NODE_ENV: production
+          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55433/hyperstack_auth
+          DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55433/hyperstack_auth
+          REDIS_HOST: 127.0.0.1
+          REDIS_PORT: "56380"
+          REDIS_URL: redis://127.0.0.1:56380
+          JWT_PRIVATE_KEY_FILE: keys/private.pem
+          JWT_PUBLIC_KEY_FILE: keys/public.pem
+          JWT_KID: dev-key-1
+          JWT_ISS: https://auth.hyperstack.local
+          JWT_AUD: hyperstack-api
+          NODE_OPTIONS: --enable-source-maps --trace-uncaught
+        run: |
+          set -euo pipefail
+
+          echo "Node: $(node -v)"
+          echo "Working dir: $(pwd)"
+
+          AUTH_JS="apps/auth-service/dist/main.js"
+          GW_JS="apps/gateway/dist/main.js"
+          AUTH_TS="apps/auth-service/src/main.ts"
+          GW_TS="apps/gateway/src/main.ts"
+
+          start_app() {
+            local name="$1" js="$2" ts="$3" tsproj="$4" log="$5"
+
+            if [[ -f "$js" ]]; then
+              echo "[$name] JS -> $js"
+              nohup setsid node "$js" >"$log" 2>&1 < /dev/null &
+            else
+              echo "[$name] TS -> $ts (ts-node)"
+              TS_NODE_TRANSPILE_ONLY=true \
+              TS_NODE_FILES=true \
+              TS_NODE_PROJECT="$tsproj" \
+              TS_NODE_COMPILER_OPTIONS='{"module":"NodeNext","moduleResolution":"NodeNext","experimentalDecorators":true,"emitDecoratorMetadata":true,"useDefineForClassFields":false}' \
+              nohup setsid node \
+                -r reflect-metadata \
+                -r ts-node/register/transpile-only \
+                -r tsconfig-paths/register \
+                "$ts" >"$log" 2>&1 < /dev/null &
+            fi
+            echo $!
+          }
+
+          AUTH_PID="$(start_app "auth-service" "$AUTH_JS" "$AUTH_TS" "apps/auth-service/tsconfig.app.json" "auth.log")"
+          GW_PID="$(start_app "gateway"      "$GW_JS"   "$GW_TS"   "apps/gateway/tsconfig.app.json"      "gateway.log")"
+
+          echo "PIDs -> auth:${AUTH_PID}  gateway:${GW_PID}"
+          ps -o pid,stat,cmd -p "${AUTH_PID}" -p "${GW_PID}" || true
+
+          echo "Esperando a que el gateway responda /health..."
+          for i in {1..60}; do
+            if curl -fsS http://127.0.0.1:3000/health >/dev/null 2>&1; then
+              echo "Gateway OK"
+              break
+            fi
+            sleep 1
+          done
+
+          if ! curl -fsS http://127.0.0.1:3000/health >/dev/null 2>&1; then
+            echo "---- gateway.log ----"; tail -n +1 gateway.log || true
+            echo "---- auth.log ----";    tail -n +1 auth.log || true
+            exit 1
+          fi
+
+          echo "---- gateway.log (tail) ----"; tail -n 120 gateway.log || true
+          echo "---- auth.log (tail) ----";    tail -n 120 auth.log || true
+
+      - name: Smoke check
+        run: |
+          set -e
+          curl -fsS http://127.0.0.1:3000/api/auth/health | jq .
+
+      - name: Run E2E
+        env:
+          BASE_URL: http://127.0.0.1:3000
+          API_BASE_URL: http://127.0.0.1:3000
+          GATEWAY_URL: http://127.0.0.1:3000
+        run: pnpm test:e2e
+
+      - name: Upload logs on failure
+        if: ${{ failure() && !env.ACT }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-logs
+          path: |
+            auth.log
+            gateway.log

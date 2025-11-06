@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { BootstrapModule } from './app/bootstrap/bootstrap.module';
 import { EnvService } from './config/env/env.service';
