@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import jwt, { SignOptions, JwtPayload } from 'jsonwebtoken';
+import jwt, { SignOptions, JwtPayload, JwtHeader } from 'jsonwebtoken';
 import { AuthEnvService } from '../../config/env/env.service';
 
 type AccessPayload = JwtPayload & { sub: string; email?: string | null };
@@ -11,24 +11,26 @@ export class JwtRs256Service {
 
   signAccess(payload: AccessPayload) {
     const { privateKey, iss, aud, accessTtl, kid } = this.env.raw.jwt;
+    const header: JwtHeader = { alg: 'RS256', kid, typ: 'access' };
     const opts: SignOptions = {
       algorithm: 'RS256',
       issuer: iss,
       audience: aud,
-      expiresIn: accessTtl,
-      header: { kid, typ: 'access' },
+      expiresIn: accessTtl as any,
+      header,
     };
     return jwt.sign(payload, privateKey, opts);
   }
 
   signRefresh(payload: RefreshPayload) {
     const { privateKey, iss, aud, refreshTtl, kid } = this.env.raw.jwt;
+    const header: JwtHeader = { alg: 'RS256', kid, typ: 'refresh' };
     const opts: SignOptions = {
       algorithm: 'RS256',
       issuer: iss,
       audience: aud,
-      expiresIn: refreshTtl,
-      header: { kid, typ: 'refresh' },
+      expiresIn: refreshTtl as any,
+      header,
     };
     return jwt.sign(payload, privateKey, opts);
   }

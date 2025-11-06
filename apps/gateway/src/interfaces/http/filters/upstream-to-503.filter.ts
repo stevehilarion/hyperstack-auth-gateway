@@ -4,7 +4,7 @@ import {
   ExceptionFilter,
   HttpStatus,
 } from '@nestjs/common';
-import { Response } from 'express';
+import type { Response } from 'express';
 import { UpstreamError } from '../../../infrastructure/http/http-client';
 
 @Catch()
@@ -31,7 +31,7 @@ export class UpstreamTo503Filter implements ExceptionFilter {
     }
 
     if (looksLikeUndiciFetchFailed(exception)) {
-      const code = exception?.cause?.code ?? 'UNKNOWN';
+      const code = (exception as any)?.cause?.code ?? 'UNKNOWN';
       res
         .status(HttpStatus.SERVICE_UNAVAILABLE)
         .set({
@@ -51,11 +51,12 @@ export class UpstreamTo503Filter implements ExceptionFilter {
   }
 }
 
-function looksLikeUndiciFetchFailed(err: any): boolean {
+function looksLikeUndiciFetchFailed(err: unknown): boolean {
+  const e = err as any;
   return (
-    err &&
-    err instanceof Error &&
-    err.message === 'fetch failed' &&
-    (err?.cause?.code || err?.name === 'AbortError')
+    e &&
+    e instanceof Error &&
+    e.message === 'fetch failed' &&
+    (((e as any)?.cause?.code) || ((e as any)?.name === 'AbortError'))
   );
 }

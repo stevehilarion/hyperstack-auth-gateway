@@ -3,7 +3,8 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
-import pkg from '../../package.json' assert { type: 'json' };
+
+const pkgVersion = process.env.npm_package_version || '0.0.0';
 
 let sdk: NodeSDK | null = null;
 
@@ -12,21 +13,27 @@ export async function startOtel() {
 
   const endpoint = process.env.OTEL_EXPORTER_OTLP_ENDPOINT || 'http://localhost:4318';
   const serviceName = process.env.OTEL_SERVICE_NAME || 'auth-service';
-  const env = process.env.NODE_ENV || 'development';
-  const version = pkg.version || '0.0.0';
+  const deployment = process.env.NODE_ENV || 'development';
+  const version = pkgVersion;
 
   process.env.OTEL_TRACES_SAMPLER ??= process.env.OTEL_TRACES_SAMPLER || 'parentbased_traceidratio';
   process.env.OTEL_TRACES_SAMPLER_ARG ??= process.env.OTEL_TRACES_SAMPLER_ARG || '1.0';
 
+  const resource = new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
+    [SemanticResourceAttributes.SERVICE_VERSION]: version,
+    [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: deployment,
+  });
+
+  const headers =
+    (process.env.OTEL_EXPORTER_OTLP_HEADERS as unknown as Partial<Record<string, unknown>>) ||
+    undefined;
+
   sdk = new NodeSDK({
-    resource: new Resource({
-      [SemanticResourceAttributes.SERVICE_NAME]: serviceName,
-      [SemanticResourceAttributes.SERVICE_VERSION]: version,
-      [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: env,
-    }),
+    resource,
     traceExporter: new OTLPTraceExporter({
       url: `${endpoint}/v1/traces`,
-      headers: process.env.OTEL_EXPORTER_OTLP_HEADERS,
+      headers,
     }),
     instrumentations: [
       getNodeAutoInstrumentations({

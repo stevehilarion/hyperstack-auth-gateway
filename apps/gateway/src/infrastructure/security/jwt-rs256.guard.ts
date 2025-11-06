@@ -13,14 +13,10 @@ export class JwtRs256Guard implements CanActivate {
     const token = auth.replace(/^Bearer\s+/i, '').trim();
     if (!token) throw new UnauthorizedException('Missing Bearer token');
 
-    const rid =
-      (req.headers['x-request-id'] ?? req.headers['x-correlation-id'])?.toString() ??
-      undefined;
-
     const decoded = jwt.decode(token, { complete: true }) as { header: JwtHeader; payload: any } | null;
     const kid = decoded?.header?.kid;
 
-    const pem = await this.jwks.getPemByKid(kid, rid);
+    const pem = await this.jwks.getPemByKid(kid);
     if (!pem) throw new UnauthorizedException('Unable to resolve public key');
 
     const { iss, aud } = this.env.jwt;

@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import * as express from 'express';
 import { ValidationPipe } from '@nestjs/common';
 import crypto from 'node:crypto';
+import type { NextFunction, Request, Response } from 'express';
 import { registry } from './observability/metrics';
 import { startOtel } from './observability/otel';
 
@@ -12,7 +13,8 @@ async function bootstrap() {
   await startOtel();
 
   const app = await NestFactory.create(BootstrapModule);
-  (app as any).set?.('trust proxy', true);
+
+  (app.getHttpAdapter().getInstance() as any).set('trust proxy', true);
 
   const env = EnvService.getStatic().raw;
 
@@ -20,14 +22,16 @@ async function bootstrap() {
   app.use(express.json({ limit: '1mb' }));
   app.use(express.urlencoded({ limit: '1mb', extended: true }));
 
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-    transformOptions: { enableImplicitConversion: true },
-    validateCustomDecorators: true,
-    forbidUnknownValues: false,
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+      transformOptions: { enableImplicitConversion: true },
+      validateCustomDecorators: true,
+      forbidUnknownValues: false,
+    }),
+  );
 
   if (env.NODE_ENV === 'development') {
     app.enableCors();
@@ -38,15 +42,15 @@ async function bootstrap() {
     });
   }
 
-  app.use((req: any, res: any, next) => {
-    if (req.path === '/metrics') return next();
-    const rid = String(req.headers['x-request-id'] ?? crypto.randomUUID());
-    req._rid = rid;
+  app.use((req: Request & { _rid?: string }, res: Response, next: NextFunction) => {
+    if ((req as any).path === '/metrics') return next();
+    const rid = String((req.headers['x-request-id'] as string | undefined) ?? crypto.randomUUID());
+    (req as any)._rid = rid;
     res.setHeader('x-request-id', rid);
     next();
   });
 
-  app.getHttpAdapter().get('/metrics', async (_req, res) => {
+  app.getHttpAdapter().get('/metrics', async (_req: any, res: any) => {
     res.setHeader('Content-Type', registry.contentType);
     res.setHeader('Cache-Control', 'no-store, max-age=0');
     res.end(await registry.metrics());
@@ -58,10 +62,9 @@ async function bootstrap() {
 
     http.use('/api/auth', async (req: any, res: any) => {
       try {
-        // Reescribe /api/auth/* -> /auth/*
         const upstreamUrl = new URL(
           req.originalUrl.replace(/^\/api\/auth/, '/auth'),
-          AUTH_BASE
+          AUTH_BASE,
         );
 
         const hop = new Set([

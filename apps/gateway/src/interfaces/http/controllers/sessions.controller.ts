@@ -1,5 +1,5 @@
 import { Body, Controller, Headers, HttpCode, Post, Get, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { AuthProxyService } from '../../../infrastructure/http/auth-proxy.service';
 import { IsUUID } from 'class-validator';
 

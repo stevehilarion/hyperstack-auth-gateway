@@ -1,46 +1,63 @@
-import * as mod from './throttling';
-
-function pickFn<T = Function>(names: string[]): T | null {
-  for (const n of names) {
-    if (typeof (mod as any)[n] === 'function') return (mod as any)[n] as T;
-  }
-  return null;
-}
+import { throttlerOptions, DeviceThrottlerGuard } from './throttling';
 
 describe('throttling (IP + deviceId)', () => {
-  const normalizeIP = pickFn(['normalizeIP', 'normIP', 'canonIP']);
-  const normalizeDevice = pickFn(['normalizeDevice', 'normDevice', 'canonDevice']);
-  const buildKeys = pickFn(['buildThrottleKeys', 'buildKeys', 'makeKeys', 'buildRateKeys']);
-  const shouldBlock = pickFn(['shouldBlock', 'exceeded', 'isBlocked']);
-
   it('exports detectados', () => {
-    expect(typeof mod).toBe('object');
+    expect(throttlerOptions).toBeDefined();
+    expect(Array.isArray(throttlerOptions.throttlers)).toBe(true);
+    expect(new DeviceThrottlerGuard()).toBeInstanceOf(DeviceThrottlerGuard);
   });
 
-  (normalizeIP ? it : it.skip)('normaliza IP', () => {
-    expect(normalizeIP!(undefined as any)).toMatch(/unknown|local/);
-    expect(normalizeIP!('::1')).toMatch(/local/);
-    expect(normalizeIP!('127.0.0.1')).toMatch(/local/);
-    expect(normalizeIP!('1.2.3.4, 9.9.9.9')).toContain('1.2.3.4');
+  it('normaliza IP (x-forwarded-for primero, si no remoteAddress)', async () => {
+    const guard = new DeviceThrottlerGuard() as any;
+
+    const req1 = {
+      headers: { 'x-forwarded-for': '1.2.3.4, 9.9.9.9' },
+      socket: { remoteAddress: '5.5.5.5' },
+    };
+    await expect(guard.getTracker(req1)).resolves.toMatch(/^no-device:1\.2\.3\.4$/);
+
+    const req2 = {
+      headers: {},
+      socket: { remoteAddress: '5.5.5.5' },
+    };
+    await expect(guard.getTracker(req2)).resolves.toBe('no-device:5.5.5.5');
   });
 
-  (normalizeDevice ? it : it.skip)('normaliza deviceId', () => {
-    expect(normalizeDevice!(undefined as any)).toMatch(/unknown/);
-    expect(normalizeDevice!('dev-1')).toContain('dev-1');
-    expect(normalizeDevice!('x'.repeat(200))).toMatch(/^dev:.{1,64}$/);
+  it('normaliza deviceId (toString, corte a 64, fallback no-device)', async () => {
+    const guard = new DeviceThrottlerGuard() as any;
+
+    const long = 'x'.repeat(200);
+    const req1 = {
+      headers: { 'x-device-id': long },
+      socket: { remoteAddress: '1.1.1.1' },
+    };
+    const tracker1: string = await guard.getTracker(req1);
+    const [device1] = tracker1.split(':');
+    expect(device1.length).toBe(64);
+
+    const req2 = {
+      headers: { 'x-device-id': 12345 as any },
+      socket: { remoteAddress: '1.1.1.1' },
+    };
+    await expect(guard.getTracker(req2)).resolves.toBe('12345:1.1.1.1');
+
+    const req3 = {
+      headers: {},
+      socket: { remoteAddress: '1.1.1.1' },
+    };
+    await expect(guard.getTracker(req3)).resolves.toBe('no-device:1.1.1.1');
   });
 
-  (buildKeys ? it : it.skip)('genera claves por ruta+ip y ruta+device', () => {
-    const out = buildKeys!({ route: '/api/auth/login', ip: '1.2.3.4', deviceId: 'abc' });
-    const s = JSON.stringify(out);
-    expect(s).toContain('/api/auth/login');
-    expect(s).toContain('1.2.3.4');
-    expect(s).toContain('abc');
+  it('compone la clave como "device:ip" (no usa ruta)', async () => {
+    const guard = new DeviceThrottlerGuard() as any;
+    const req = {
+      headers: { 'x-device-id': 'dev-abc', 'x-forwarded-for': '7.7.7.7' },
+      socket: { remoteAddress: '0.0.0.0' },
+      originalUrl: '/api/x', // no afecta
+    };
+    await expect(guard.getTracker(req)).resolves.toBe('dev-abc:7.7.7.7');
   });
 
-  (shouldBlock ? it : it.skip)('bloquea si se excede IP o device', () => {
-    expect(shouldBlock!({ ipCount: 100, devCount: 0 }, { ip: 100, dev: 50 })).toBe(true);
-    expect(shouldBlock!({ ipCount: 99, devCount: 51 }, { ip: 100, dev: 50 })).toBe(true);
-    expect(shouldBlock!({ ipCount: 10, devCount: 10 }, { ip: 100, dev: 50 })).toBe(false);
+  it.skip('bloquea si se excede IP o device (esto es de integración)', () => {
   });
 });

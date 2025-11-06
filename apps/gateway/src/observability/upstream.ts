@@ -41,7 +41,8 @@ export async function upstreamFetch(
   url: string,
   init: HttpClientOptions = {},
 ) {
-  const tracer = trace.getTracer('gateway-upstream');
+  void trace.getTracer('gateway-upstream');
+
   const target = parseTarget(url);
   const method = (init.method || 'GET').toUpperCase();
 

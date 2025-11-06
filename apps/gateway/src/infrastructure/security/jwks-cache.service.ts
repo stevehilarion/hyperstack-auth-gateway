@@ -1,15 +1,18 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { EnvService } from '../../config/env/env.service';
 import { httpFetch } from '../http/http-client';
-import { importJWK, JWTPayload, jwtVerify, JWK } from 'jose'; // pnpm add jose (si no lo tienes)
+import { importJWK, jwtVerify } from 'jose';
+import type { JWTPayload, JWK } from 'jose';
 
+type VerifyKey = Parameters<typeof jwtVerify>[1];
 type Cached = { keys: JWK[]; expiresAt: number };
+
+const now = () => Date.now();
 
 @Injectable()
 export class JwksCacheService {
   private readonly log = new Logger(JwksCacheService.name);
   private cache: Cached | null = null;
-  // TTL: 10 minutos
   private readonly ttlMs = 10 * 60 * 1000;
 
   private get jwksUrl(): string {
@@ -17,53 +20,60 @@ export class JwksCacheService {
     return `${base}/auth/.well-known/jwks.json`;
   }
 
-  private now() { return Date.now(); }
-
   private async fetchJwks(): Promise<JWK[]> {
     const res = await httpFetch(this.jwksUrl, { method: 'GET' });
     if (!res.ok) throw new Error(`JWKS upstream ${res.status}`);
-    const json = await res.json();
-    if (!json || !Array.isArray(json.keys)) throw new Error('Invalid JWKS shape');
-    return json.keys as JWK[];
+    const json = (await res.json()) as { keys?: JWK[] };
+    if (!json?.keys || !Array.isArray(json.keys)) throw new Error('Invalid JWKS shape');
+    return json.keys;
   }
 
   private async ensureFresh(): Promise<void> {
-    const fresh = this.cache && this.cache.expiresAt > this.now();
+    const fresh = this.cache && this.cache.expiresAt > now();
     if (fresh) return;
 
     try {
       const keys = await this.fetchJwks();
-      this.cache = { keys, expiresAt: this.now() + this.ttlMs };
+      this.cache = { keys, expiresAt: now() + this.ttlMs };
     } catch (e) {
       if (this.cache) {
         this.log.warn(`JWKS refresh failed, using stale cache: ${String(e)}`);
-        this.cache.expiresAt = this.now() + 60_000;
+        this.cache.expiresAt = now() + 60_000;
       } else {
         throw e;
       }
     }
   }
 
-  async getKeyByKid(kid: string): Promise<CryptoKey> {
+  async getKeyByKid(kid: string): Promise<VerifyKey> {
+    // 1er intento con cache actual
     await this.ensureFresh();
-    const keys = this.cache?.keys ?? [];
-    const jwk = keys.find(k => (k as any).kid === kid);
-    if (!jwk) {
-      this.cache = null;
-      await this.ensureFresh();
-      const keys2 = this.cache?.keys ?? [];
-      const jwk2 = keys2.find(k => (k as any).kid === kid);
-      if (!jwk2) throw new Error(`JWKS kid not found: ${kid}`);
-      return importJWK(jwk2, 'RS256');
+    const c1 = this.cache as Cached | null;
+    const keys1: JWK[] = Array.isArray(c1?.keys) ? (c1!.keys as JWK[]) : [];
+    const jwk1 = keys1.find((k) => (k as any).kid === kid);
+    if (jwk1) {
+      return importJWK(jwk1, 'RS256') as unknown as VerifyKey;
     }
-    return importJWK(jwk, 'RS256');
+
+    this.cache = null;
+    await this.ensureFresh();
+
+    const c2 = this.cache as Cached | null;
+    const keys2: JWK[] = Array.isArray(c2?.keys) ? (c2!.keys as JWK[]) : [];
+    const jwk2 = keys2.find((k) => (k as any).kid === kid);
+    if (!jwk2) throw new Error(`JWKS kid not found: ${kid}`);
+
+    return importJWK(jwk2, 'RS256') as unknown as VerifyKey;
   }
 
-  async verifyJwtRS256(token: string, expectedAud: string, expectedIss: string): Promise<JWTPayload> {
-    // Decode header to get kid (sin verificar firma)
+  async verifyJwtRS256(
+    token: string,
+    expectedAud: string,
+    expectedIss: string
+  ): Promise<JWTPayload> {
     const [h] = token.split('.');
     if (!h) throw new Error('Malformed JWT');
-    const header = JSON.parse(Buffer.from(h, 'base64url').toString('utf8'));
+    const header = JSON.parse(Buffer.from(h, 'base64url').toString('utf8')) as { kid?: string };
     const kid = header.kid;
     if (!kid) throw new Error('Missing kid');
 

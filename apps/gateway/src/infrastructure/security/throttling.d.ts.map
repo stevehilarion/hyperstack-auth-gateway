@@ -1,0 +1,1 @@
+{"version":3,"file":"throttling.d.ts","sourceRoot":"","sources":["throttling.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,cAAc,EAAE,sBAAsB,EAAE,MAAM,mBAAmB,CAAC;AAE3E,eAAO,MAAM,gBAAgB,EAAE,sBAI9B,CAAC;AAEF,qBACa,oBAAqB,SAAQ,cAAc;IACvC,UAAU,CAAC,GAAG,EAAE,MAAM,CAAC,MAAM,EAAE,GAAG,CAAC,GAAG,OAAO,CAAC,MAAM,CAAC;CAOrE"}

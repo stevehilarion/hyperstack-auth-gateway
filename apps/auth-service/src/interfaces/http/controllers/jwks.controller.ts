@@ -1,5 +1,5 @@
 import { Controller, Get, Header, Res } from '@nestjs/common';
-import { Response } from 'express';
+import type { Response } from 'express';
 import * as fs from 'fs';
 import * as path from 'path';
 import { createPublicKey } from 'crypto';
@@ -15,7 +15,7 @@ function resolveKeyFile(p: string) {
 @Controller('auth/.well-known')
 export class JwksController {
   @Get('jwks.json')
-  @Header('Cache-Control', 'public, max-age=300') // cache 5 min
+  @Header('Cache-Control', 'public, max-age=300')
   jwks(@Res({ passthrough: true }) res: Response) {
     const kid = process.env.JWT_KID || 'dev-key-1';
     const pubPath = resolveKeyFile(process.env.JWT_PUBLIC_KEY_FILE || 'keys/public.pem');

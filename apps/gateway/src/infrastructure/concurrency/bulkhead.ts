@@ -1,7 +1,6 @@
 import { Injectable, HttpException, ServiceUnavailableException } from '@nestjs/common';
 import { EnvService } from '../../config/env/env.service';
-import { httpFetch, HttpClientOptions } from './http-client';
-import { Bulkhead } from '../concurrency/bulkhead';
+import { httpFetch, HttpClientOptions } from '../http/http-client';
 
 function sleep(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
@@ -13,11 +12,73 @@ type ProxyResult<T> = {
   status: number;
 };
 
-function headersToRecord(h: Headers): Record<string, string> {
+function headersToRecord(h: any): Record<string, string> {
   const out: Record<string, string> = {};
-  // @ts-ignore iterable en runtime
-  for (const [k, v] of (h as any).entries()) out[k.toLowerCase()] = String(v);
+  if (h && typeof h.entries === 'function') {
+    for (const [k, v] of h.entries()) out[String(k).toLowerCase()] = String(v);
+  } else if (h && typeof h === 'object') {
+    for (const k of Object.keys(h)) out[k.toLowerCase()] = String((h as any)[k]);
+  }
   return out;
+}
+
+class Bulkhead {
+  private inFlight = 0;
+  private queue: Array<{
+    run: () => void;
+    reject: (err: any) => void;
+    timer: NodeJS.Timeout;
+  }> = [];
+
+  constructor(
+    private readonly maxConcurrent: number,
+    private readonly queueLimit: number,
+    private readonly queueTimeoutMs: number,
+  ) {}
+
+  async exec<T>(fn: () => Promise<T>): Promise<T> {
+    if (this.inFlight < this.maxConcurrent) {
+      this.inFlight++;
+      return this.runNow(fn);
+    }
+
+    if (this.queue.length >= this.queueLimit) {
+      throw new ServiceUnavailableException('bulkhead queue full');
+    }
+
+    return new Promise<T>((resolve, reject) => {
+      const run = () => {
+        this.inFlight++;
+        this.runNow(fn).then(resolve, reject);
+      };
+      const timer = setTimeout(() => {
+        // si expira en cola, sácala y falla
+        const idx = this.queue.findIndex((q) => q.timer === timer);
+        if (idx >= 0) this.queue.splice(idx, 1);
+        reject(new ServiceUnavailableException('bulkhead queue timeout'));
+      }, this.queueTimeoutMs);
+
+      this.queue.push({ run, reject, timer });
+    });
+  }
+
+  private async runNow<T>(fn: () => Promise<T>): Promise<T> {
+    try {
+      return await fn();
+    } finally {
+      this.inFlight--;
+      this.drain();
+    }
+  }
+
+  private drain() {
+    while (this.inFlight < this.maxConcurrent && this.queue.length > 0) {
+      const next = this.queue.shift();
+      if (!next) break;
+      clearTimeout(next.timer);
+      next.run();
+    }
+  }
 }
 
 @Injectable()
@@ -91,8 +152,8 @@ export class AuthProxyService {
 
   private isRetryable(err: any): boolean {
     const s = String(err ?? '');
-    if (err?.name === 'AbortError') return true;                     // timeout del cliente
-    if (/Upstream 5\d\d/.test(s)) return true;                       // 5xx upstream
+    if (err?.name === 'AbortError') return true; // timeout del cliente
+    if (/Upstream 5\d\d/.test(s)) return true;   // 5xx upstream
     if (s.includes('fetch failed') || s.includes('ECONN') || s.includes('ENOTFOUND')) return true; // red
     return false;
   }
@@ -126,9 +187,9 @@ export class AuthProxyService {
         const res = await httpFetch(url, { ...init, signal: controller.signal });
         clearTimeout(id);
 
-        const hdrs = headersToRecord(res.headers as any);
-        const status = res.status;
-        const text = await res.text().catch(() => '');
+        const hdrs = headersToRecord((res as any).headers);
+        const status = res.status ?? (res as any).status;
+        const text = await (res as any).text().catch(() => '');
 
         if (!res.ok) {
           if (status >= 500) this.onFailure();
@@ -205,7 +266,7 @@ export class AuthProxyService {
         headers,
       };
 
-      // ===== Bulkhead: limita concurrencia y cola con timeout =====
+      // ===== Bulkhead =====
       return await this.bulkhead.exec(() =>
         this.coreRequest<T>(url, initWithHeaders, allowRetry, retries),
       );

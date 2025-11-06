@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Headers, UseGuards, HttpCode, Req, Res } from '@nestjs/common';
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { AuthProxyService } from '../../../infrastructure/http/auth-proxy.service';
 import { JwtRs256Guard } from '../../../infrastructure/security/jwt-rs256.guard';
 

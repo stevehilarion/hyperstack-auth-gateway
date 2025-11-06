@@ -90,18 +90,14 @@
     "dc:down": "bash -lc 'cd ../../ && docker compose down'",
     "dc:ps": "bash -lc 'cd ../../ && docker compose ps'",
     "dc:logs": "bash -lc 'cd ../../ && docker compose logs -f --tail=100 otel-collector jaeger prometheus postgres redis'",
-
     "prisma:generate": "prisma generate --schema=./prisma/schema.prisma",
     "prisma:migrate": "prisma migrate dev --schema=./prisma/schema.prisma",
     "prisma:studio": "prisma studio --schema=./prisma/schema.prisma",
     "db:push": "prisma db push --schema=./prisma/schema.prisma",
-
     "build": "pnpm -w nx build auth-service",
     "serve": "pnpm -w nx serve auth-service",
-
     "dev:mini": "pnpm dc:up:mini && pnpm serve",
     "dev:obs": "pnpm dc:up:mini && pnpm dc:up:obs && pnpm serve",
-
     "health": "bash -lc 'curl -sS http://localhost:3001/auth/health || true'"
   },
   "dependencies": {
@@ -126,7 +122,9 @@
     "@nestjs/testing": "^11.0.0",
     "@types/bcrypt": "^6.0.0",
     "@types/bcryptjs": "^3.0.0",
+    "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/ms": "^2.1.0",
     "copy-webpack-plugin": "^13.0.1",
     "prisma": "^6.18.0"
   }

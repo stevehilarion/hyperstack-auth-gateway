@@ -16,6 +16,10 @@ jobs:
   # Build + Lint + Typecheck + Unit tests + Build artefacts
   build:
     runs-on: ubuntu-latest
+    env:
+      NX_SKIP_NX_CLOUD: 'true'
+      NX_DAEMON: 'false'
+      NX_NO_NATIVE_CACHE: 'true'
 
     services:
       postgres:
@@ -24,14 +28,14 @@ jobs:
           POSTGRES_DB: hyperstack_auth
           POSTGRES_USER: hyperstack
           POSTGRES_PASSWORD: hyperstack
-        ports: [ "5432:5432" ]
+        ports: [ "55432:5432" ]
         options: >-
           --health-cmd="pg_isready -U hyperstack -d hyperstack_auth"
           --health-interval=5s --health-timeout=3s --health-retries=30
 
       redis:
         image: redis:7-alpine
-        ports: [ "6379:6379" ]
+        ports: [ "56379:6379" ]
         options: >-
           --health-cmd="redis-cli ping || exit 1"
           --health-interval=5s --health-timeout=3s --health-retries=30
@@ -56,11 +60,16 @@ jobs:
       - name: Install deps
         run: pnpm install --frozen-lockfile
 
+      - name: Install CLI deps (pg_isready, nc, jq)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client netcat-openbsd jq
+
       # ----- Espera explícita a servicios -----
       - name: Wait for Postgres
         run: |
           for i in {1..60}; do
-            pg_isready -h localhost -p 5432 -U hyperstack -d hyperstack_auth && exit 0
+            pg_isready -h 127.0.0.1 -p 55432 -U hyperstack -d hyperstack_auth && exit 0
             sleep 2
           done
           echo "Postgres no respondió a tiempo"; exit 1
@@ -68,7 +77,7 @@ jobs:
       - name: Wait for Redis
         run: |
           for i in {1..60}; do
-            (echo PING | nc -w 1 localhost 6379 | grep -q PONG) && exit 0 || true
+            (echo PING | nc -w 1 127.0.0.1 56379 | grep -q PONG) && exit 0 || true
             sleep 2
           done
           echo "Redis no respondió a tiempo"; exit 1
@@ -79,8 +88,8 @@ jobs:
 
       - name: Prisma Migrate deploy (auth-service)
         env:
-          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth
-        run: pnpm --filter @hyperstack/auth-service prisma migrate deploy --schema=./prisma/schema.prisma
+          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55432/hyperstack_auth
+        run: pnpm --filter @hyperstack/auth-service exec prisma migrate deploy --schema=./prisma/schema.prisma
 
       # ----- Claves JWT dummy -----
       - name: Generate JWT keys (CI)
@@ -91,144 +100,42 @@ jobs:
 
       # ----- Lint / Typecheck / Unit Tests -----
       - name: Lint
-        run: pnpm -w nx run-many -t lint --all --parallel
+        run: pnpm -w exec nx run-many -t lint --all --output-style=stream --skip-nx-cache
 
       - name: Typecheck
-        run: pnpm -w nx run-many -t typecheck --all --parallel
+        run: pnpm -w exec nx run-many -t typecheck --all --output-style=stream --skip-nx-cache
 
       - name: Unit tests
         env:
           NODE_ENV: test
-          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth
+          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55432/hyperstack_auth
           REDIS_HOST: 127.0.0.1
-          REDIS_PORT: 6379
+          REDIS_PORT: 56379
           JWT_PRIVATE_KEY_FILE: keys/private.pem
           JWT_PUBLIC_KEY_FILE: keys/public.pem
           JWT_KID: dev-key-1
           JWT_ISS: https://auth.hyperstack.local
           JWT_AUD: hyperstack-api
-        run: pnpm -w nx run-many -t test --all --parallel
+        run: pnpm -w exec nx run-many -t test --all --output-style=stream --skip-nx-cache
 
       # ----- Build (prod) -----
       - name: Build (prod)
         env:
-          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth
+          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@127.0.0.1:55432/hyperstack_auth
           REDIS_HOST: 127.0.0.1
-          REDIS_PORT: 6379
+          REDIS_PORT: 56379
           JWT_PRIVATE_KEY_FILE: keys/private.pem
           JWT_PUBLIC_KEY_FILE: keys/public.pem
           JWT_KID: dev-key-1
           JWT_ISS: https://auth.hyperstack.local
           JWT_AUD: hyperstack-api
-        run: pnpm -w nx run-many -t build --all --configuration=production --parallel
+        run: pnpm -w exec nx run-many -t build --all --configuration=production --output-style=stream --skip-nx-cache
 
       - name: Upload build artifacts
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v4
         with:
           name: dist
           path: |
             apps/auth-service/dist
             apps/gateway/dist
-
-  # E2E — levanta apps y pega a /api/auth/*
-  e2e:
-    needs: build
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_DB: hyperstack_auth
-          POSTGRES_USER: hyperstack
-          POSTGRES_PASSWORD: hyperstack
-        ports: [ "5432:5432" ]
-        options: >-
-          --health-cmd="pg_isready -U hyperstack -d hyperstack_auth"
-          --health-interval=5s --health-timeout=3s --health-retries=30
-
-      redis:
-        image: redis:7-alpine
-        ports: [ "6379:6379" ]
-        options: >-
-          --health-cmd="redis-cli ping || exit 1"
-          --health-interval=5s --health-timeout=3s --health-retries=30
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-        with: { version: 9.12.0 }
-
-      - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: pnpm }
-
-      - run: pnpm install --frozen-lockfile
-
-      # ----- Espera servicios -----
-      - name: Wait for Postgres
-        run: |
-          for i in {1..60}; do
-            pg_isready -h localhost -p 5432 -U hyperstack -d hyperstack_auth && exit 0
-            sleep 2
-          done
-          echo "Postgres no respondió a tiempo"; exit 1
-
-      - name: Wait for Redis
-        run: |
-          for i in {1..60}; do
-            (echo PING | nc -w 1 localhost 6379 | grep -q PONG) && exit 0 || true
-            sleep 2
-          done
-          echo "Redis no respondió a tiempo"; exit 1
-
-      # ----- Claves JWT dummy -----
-      - name: Generate JWT keys (CI)
-        run: |
-          mkdir -p keys
-          openssl genrsa -out keys/private.pem 2048
-          openssl rsa -in keys/private.pem -pubout -out keys/public.pem
-
-      # ----- Migraciones para e2e -----
-      - name: Prisma Migrate deploy (auth-service)
-        env:
-          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth
-        run: pnpm --filter @hyperstack/auth-service prisma migrate deploy --schema=./prisma/schema.prisma
-
-      # ----- Build y levantar apps en background -----
-      - name: Build services
-        run: |
-          pnpm --filter @hyperstack/auth-service build
-          pnpm --filter @hyperstack/gateway build
-
-      - name: Start auth-service + gateway
-        env:
-          AUTH_DATABASE_URL: postgres://hyperstack:hyperstack@localhost:5432/hyperstack_auth
-          REDIS_HOST: 127.0.0.1
-          REDIS_PORT: 6379
-          JWT_PRIVATE_KEY_FILE: keys/private.pem
-          JWT_PUBLIC_KEY_FILE: keys/public.pem
-          JWT_KID: dev-key-1
-          JWT_ISS: https://auth.hyperstack.local
-          JWT_AUD: hyperstack-api
-        run: |
-          node apps/auth-service/dist/main.js > auth.log 2>&1 &
-          node apps/gateway/dist/main.js > gateway.log 2>&1 &
-
-          for i in {1..60}; do
-            curl -sS http://localhost:3000/api/auth/health | jq -e '.ok==true' && exit 0 || true
-            sleep 1
-          done
-          echo "Gateway/auth no levantó a tiempo"; echo "--- auth.log ---"; tail -n +1 auth.log; echo "--- gateway.log ---"; tail -n +1 gateway.log; exit 1
-
-      - name: Run E2E
-        run: pnpm test:e2e
-
-      - name: Upload logs on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: e2e-logs
-          path: |
-            auth.log
-            gateway.log

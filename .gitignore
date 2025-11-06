@@ -1,6 +1,6 @@
 # ─── Env & Secrets ─────────────────────────────────────────
 .env
-.env.*            # excepto .env.example (ver override abajo)
+.env.*
 apps/**/.env
 apps/**/.env.*
 !*.env.example
@@ -18,7 +18,7 @@ apps/**/node_modules/.prisma/
 # ─── Nx / pnpm caches ─────────────────────────────────────
 .pnpm-store/
 node_modules/
-pnpm-lock.yaml      # si NO quieres lock en repo compartido; si lo quieres, elimina esta línea
+pnpm-lock.yaml
 
 # ─── Builds / Artefactos ──────────────────────────────────
 dist/

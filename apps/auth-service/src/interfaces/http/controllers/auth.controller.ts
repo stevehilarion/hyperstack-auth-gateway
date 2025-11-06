@@ -1,7 +1,14 @@
 import {
-  Body, Controller, Get, Headers, Post, UnauthorizedException, HttpCode, Req,
+  Body,
+  Controller,
+  Get,
+  Headers,
+  Post,
+  UnauthorizedException,
+  HttpCode,
+  Req,
 } from '@nestjs/common';
-import { Request } from 'express';
+import type { Request } from 'express';
 import { Throttle } from '@nestjs/throttler';
 
 import { RegisterUserUseCase } from '../../../use-cases/register-user.use-case';
@@ -24,8 +31,9 @@ export class AuthController {
   private metaFrom(req: Request) {
     const ua = req.headers['user-agent']?.toString() ?? '';
     const deviceId = req.headers['x-device-id']?.toString() ?? '';
-    const ip = (req.headers['x-forwarded-for']?.toString()?.split(',')[0]?.trim())
-            || (req.socket?.remoteAddress ?? '');
+    const ip =
+      req.headers['x-forwarded-for']?.toString()?.split(',')[0]?.trim() ||
+      (req.socket?.remoteAddress ?? '');
     return { ua, ip, deviceId };
   }
 
@@ -42,13 +50,13 @@ export class AuthController {
     return payload.sub as string;
   }
 
-  @Throttle(10, 60) // 10/min por device+ip
+  @Throttle({ limit: 10, ttl: 60_000 })
   @Post('register')
   async register(@Body() body: RegisterDto, @Req() req: Request) {
     const user = await this.registerUser.execute({
       email: body.email,
       password: body.password,
-      name: body.name ?? null,
+      name: body.name ?? undefined,
     });
 
     const accessToken = this.jwt.signAccess({ sub: user.id, email: user.email.value });
@@ -57,7 +65,7 @@ export class AuthController {
     return { accessToken, refreshToken: refresh };
   }
 
-  @Throttle(20, 60) // 20/min por device+ip
+  @Throttle({ limit: 20, ttl: 60_000 })
   @Post('login')
   async login(@Body() body: LoginDto, @Req() req: Request) {
     const user = await this.loginUser.execute({ email: body.email, password: body.password });
@@ -84,11 +92,10 @@ export class AuthController {
     return { id: u.id, email: u.email, name: u.name ?? null };
   }
 
-  @Throttle(60, 60) // 60/min por device+ip
+  @Throttle({ limit: 60, ttl: 60_000 })
   @HttpCode(200)
   @Post('refresh')
   async refresh(@Body() body: RefreshDto, @Req() req: Request) {
-    // Primero valida que el refresh sea verificable
     let decoded: any;
     try {
       decoded = this.jwt.verifyRefresh(body.refreshToken);
@@ -96,7 +103,6 @@ export class AuthController {
       throw new UnauthorizedException('Invalid refresh token');
     }
 
-    // Rota y NO enmascares el error: propaga el mensaje real
     let rotated;
     try {
       rotated = await this.tokens.rotateRefresh(body.refreshToken, this.metaFrom(req));
@@ -133,7 +139,7 @@ export class AuthController {
     return { ok: true, revoked: res.count };
   }
 
-  @Throttle(20, 60)
+  @Throttle({ limit: 20, ttl: 60_000 })
   @Get('sessions')
   async sessions(@Headers('authorization') auth?: string) {
     const userId = this.userIdFromAuthHeader(auth);
@@ -141,12 +147,9 @@ export class AuthController {
     return list;
   }
 
-  @Throttle(20, 60)
+  @Throttle({ limit: 20, ttl: 60_000 })
   @Post('sessions/revoke')
-  async revokeSession(
-    @Headers('authorization') auth?: string,
-    @Body('sid') sid?: string,
-  ) {
+  async revokeSession(@Headers('authorization') auth?: string, @Body('sid') sid?: string) {
     const userId = this.userIdFromAuthHeader(auth);
     if (!sid || typeof sid !== 'string') {
       throw new UnauthorizedException('Missing sid');

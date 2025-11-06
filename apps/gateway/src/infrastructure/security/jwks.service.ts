@@ -4,7 +4,7 @@ import { httpFetch } from '../http/http-client';
 import jwkToPem from 'jwk-to-pem';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import { getCtx } from '../logging/request-context'; // <-- NUEVO
+import { getCtx } from '../logging/request-context';
 
 type Jwk = {
   kid?: string;
@@ -15,6 +15,8 @@ type Jwk = {
 };
 
 type JwksResponse = { keys: Jwk[] };
+
+function now() { return Date.now(); }
 
 @Injectable()
 export class JwksService {
@@ -33,9 +35,7 @@ export class JwksService {
     return `${base}/auth/.well-known/jwks.json`;
   }
 
-  private now() { return Date.now(); }
-
-  private pickTtlMs(defaultMin = 5 * 60_000, defaultMax = 15 * 60_000, maxAgeHeader?: number) {
+  private pickTtlMs(maxAgeHeader?: number, defaultMin = 5 * 60_000, defaultMax = 15 * 60_000) {
     if (typeof maxAgeHeader === 'number' && maxAgeHeader > 0) {
       return maxAgeHeader * 1000;
     }
@@ -65,7 +65,7 @@ export class JwksService {
   private readLocalPem(): string | null {
     const isDev = (this.env.raw.NODE_ENV || '').toLowerCase() === 'development';
     if (!isDev) return null;
-    const configured = (this.env as any).jwt?.publicKeyFile || this.env.raw.JWT_PUBLIC_KEY_FILE;
+    const configured = (this.env as any).jwt?.publicKeyFile || process.env.JWT_PUBLIC_KEY_FILE;
     if (!configured) return null;
     try {
       const p = path.resolve(process.cwd(), configured);
@@ -76,7 +76,7 @@ export class JwksService {
   }
 
   private async refresh(force = false): Promise<void> {
-    if (!force && this.now() < this.expiresAt && this.byKid.size > 0) return;
+    if (!force && now() < this.expiresAt && this.byKid.size > 0) return;
 
     const rid = getCtx()?.requestId;
     const headers: Record<string, string> = {};
@@ -87,7 +87,7 @@ export class JwksService {
 
     if (res.status === 304 && this.byKid.size) {
       const maxAge = this.parseMaxAge(res.headers.get('cache-control'));
-      this.expiresAt = this.now() + this.pickTtlMs(undefined as any, undefined as any, maxAge);
+      this.expiresAt = now() + this.pickTtlMs(maxAge);
       return;
     }
 
@@ -108,13 +108,13 @@ export class JwksService {
     this.etag = res.headers.get('etag');
 
     const maxAge = this.parseMaxAge(res.headers.get('cache-control'));
-    this.expiresAt = this.now() + this.pickTtlMs(undefined as any, undefined as any, maxAge);
+    this.expiresAt = now() + this.pickTtlMs(maxAge);
   }
 
   async getPemByKid(kid?: string): Promise<string | null> {
-    if (this.now() < this.expiresAt && this.byKid.size > 0) {
+    if (now() < this.expiresAt && this.byKid.size > 0) {
       if (kid && this.byKid.has(kid)) return this.byKid.get(kid)!;
-      if (!kid && this.byKid.size === 1) return [...this.byKid.values()][0]; // <-- NUEVO
+      if (!kid && this.byKid.size === 1) return [...this.byKid.values()][0];
     }
 
     try {
@@ -132,7 +132,7 @@ export class JwksService {
       return null;
     } catch (err) {
       if (this.byKid.size) {
-        this.expiresAt = this.now() + this.STALE_ERROR_MS;
+        this.expiresAt = now() + this.STALE_ERROR_MS;
         this.log.warn(`JWKS refresh failed, using stale cache: ${String(err)}`);
         if (kid && this.byKid.has(kid)) return this.byKid.get(kid)!;
         if (!kid && this.byKid.size === 1) return [...this.byKid.values()][0];

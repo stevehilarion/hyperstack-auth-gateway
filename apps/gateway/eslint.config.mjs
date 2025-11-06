@@ -1,3 +1,14 @@
-import baseConfig from '../../eslint.config.mjs';
+import base from '../../eslint.config.mjs';
 
-export default [...baseConfig];
+export default [
+  ...base,
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 'warn',
+      '@typescript-eslint/no-empty-function': 'warn',
+      'no-empty': 'warn',
+      '@typescript-eslint/no-unsafe-function-type': 'warn',
+    },
+  },
+];

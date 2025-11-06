@@ -10,15 +10,23 @@ type RefreshClaims = { sub: string; jti: string; sid: string; exp: number };
 
 type Meta = { ua?: string | null; ip?: string | null; deviceId?: string | null };
 
-function computeThresholdSec(refreshTtl: string, raw?: string): number {
+function msNumber(value: string | number): number {
+  if (typeof value === 'number') return value;
+  return (ms as unknown as (v: string) => number)(value);
+}
+function toSecondsCeil(v: string | number): number {
+  return Math.ceil(msNumber(v) / 1000);
+}
+
+function computeThresholdSec(refreshTtl: string | number, raw?: string): number {
   const v = (raw ?? '').trim();
   if (!v) return 0; // 0 => rotar SIEMPRE
   if (v.endsWith('%')) {
     const pct = Math.max(0, Math.min(100, Number(v.slice(0, -1))));
-    const ttlMs = ms(refreshTtl);
+    const ttlMs = msNumber(refreshTtl);
     return Math.ceil((ttlMs * (pct / 100)) / 1000);
   }
-  return Math.ceil(ms(v) / 1000); // e.g. '2d', '6h'
+  return toSecondsCeil(v); // e.g. '2d', '6h'
 }
 
 @Injectable()
@@ -31,11 +39,11 @@ export class TokenService {
 
   /** ===== Keys ===== */
   private kActive(sid: string) { return `rt:active:${sid}`; }
-  private kPrev(sid: string)   { return `rt:prev:${sid}`; }  
-  private kLast(sid: string)   { return `rt:last:${sid}`; }  
+  private kPrev(sid: string)   { return `rt:prev:${sid}`; }
+  private kLast(sid: string)   { return `rt:last:${sid}`; }
   private kUserSids(userId: string) { return `rt:sids:${userId}`; }
   private kRevoked(sid: string) { return `rt:revoked:${sid}`; }
-  private kSess(sid: string)    { return `rt:sess:${sid}`; } 
+  private kSess(sid: string)    { return `rt:sess:${sid}`; }
 
   /** ===== Access ===== */
   createAccessToken(claims: AccessClaims) {
@@ -48,7 +56,7 @@ export class TokenService {
     const jti = randomUUID();
 
     const refresh = this.jwt.signRefresh({ sub: userId, jti, sid });
-    const ttlSec = Math.ceil(ms(this.env.raw.jwt.refreshTtl) / 1000);
+    const ttlSec = toSecondsCeil(this.env.raw.jwt.refreshTtl);
 
     const nowIso = new Date().toISOString();
     const m = {
@@ -83,14 +91,12 @@ export class TokenService {
     const nowSec = Math.floor(Date.now() / 1000);
     const remain = Math.max(payload.exp - nowSec, 0);
 
-    // Umbral configurable (0 => rotar SIEMPRE)
     const SLIDING_THRESHOLD_SEC = computeThresholdSec(
       this.env.raw.jwt.refreshTtl,
       process.env.JWT_REFRESH_SLIDING_THRESHOLD
     );
     const forceRotate = SLIDING_THRESHOLD_SEC <= 0;
 
-    // Si la familia ya está revocada, ni lo intentes
     const revoked = await this.redis.raw.get(this.kRevoked(payload.sid));
     if (revoked) throw new UnauthorizedException('Session revoked');
 
@@ -99,9 +105,8 @@ export class TokenService {
     const lastKey   = this.kLast(payload.sid);
     const sessKey   = this.kSess(payload.sid);
 
-const client = this.redis.raw.duplicate({ lazyConnect: true });
-await client.connect();
-
+    const client = this.redis.raw.duplicate({ lazyConnect: true });
+    await client.connect();
 
     try {
       if (!forceRotate && remain > SLIDING_THRESHOLD_SEC) {
@@ -129,6 +134,7 @@ await client.connect();
           client.get(prevKey),
         ]);
 
+        // 1) Idempotencia (mismo token que acabamos de rotar)
         if (prev && prev === payload.jti) {
           const last = await client.get(lastKey);
           await client.unwatch();
@@ -162,9 +168,9 @@ await client.connect();
         const newJti = randomUUID();
         const newRefresh = this.jwt.signRefresh({ sub: payload.sub, jti: newJti, sid: payload.sid });
 
-        const newTtlSec = Math.ceil(ms(this.env.raw.jwt.refreshTtl) / 1000);
-        const GRACE_SEC = 30;  // ventana anti-carreras
-        const LAST_SEC  = 45;  // para idempotencia
+        const newTtlSec = toSecondsCeil(this.env.raw.jwt.refreshTtl);
+        const GRACE_SEC = 30;
+        const LAST_SEC  = 45;
 
         const ok = await client.multi()
           .set(activeKey, newJti, 'EX', newTtlSec)     // nuevo activo
@@ -185,17 +191,15 @@ await client.connect();
           await client.disconnect();
           return { newRefresh, sub: payload.sub, sid: payload.sid, rotated: true };
         }
-        // Si hubo race, reintenta loop
       }
     } finally {
-	  try {
-    if (client.status !== 'end') {
-      await client.quit();             // promesa
-    }
-  } catch {
-    try { client.disconnect(); } catch {}
-  }
-
+      try {
+        if (client.status !== 'end') {
+          await client.quit();
+        }
+      } catch {
+        try { client.disconnect(); } catch {}
+      }
     }
   }
 
@@ -211,7 +215,7 @@ await client.connect();
     }
 
     const nowSec = Math.floor(Date.now() / 1000);
-    const ttl = Math.max(payload.exp - nowSec, 0) || Math.ceil(ms(this.env.raw.jwt.refreshTtl) / 1000);
+    const ttl = Math.max(payload.exp - nowSec, 0) || toSecondsCeil(this.env.raw.jwt.refreshTtl);
 
     await this.redis.raw.multi()
       .set(this.kRevoked(payload.sid), '1', 'EX', ttl)
@@ -231,7 +235,7 @@ await client.connect();
     if (!sids.length) return { ok: true, count: 0 };
 
     let actuallyRevoked = 0;
-    const ttl = Math.ceil(ms(this.env.raw.jwt.refreshTtl) / 1000);
+    const ttl = toSecondsCeil(this.env.raw.jwt.refreshTtl);
 
     for (const sid of sids) {
       const activeKey  = this.kActive(sid);
@@ -308,7 +312,7 @@ await client.connect();
     const inSet = await this.redis.raw.sismember(this.kUserSids(userId), sid);
     if (!inSet) return { ok: true, revoked: false };
 
-    const ttl = Math.ceil(ms(this.env.raw.jwt.refreshTtl) / 1000);
+    const ttl = toSecondsCeil(this.env.raw.jwt.refreshTtl);
 
     await this.redis.raw.multi()
       .set(this.kRevoked(sid), '1', 'EX', ttl)

@@ -4,9 +4,24 @@ import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
 import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
 import { env } from 'node:process';
-import pkg from '../../package.json' assert { type: 'json' };
 
 let sdk: NodeSDK | null = null;
+
+function parseOtlpHeaders(str?: string): Record<string, string> | undefined {
+  if (!str) return undefined;
+  const entries = str
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((kv) => {
+      const [k, ...rest] = kv.split('=');
+      const key = k?.trim();
+      const val = rest.join('=').trim();
+      return key && val ? [key, val] as const : null;
+    })
+    .filter((x): x is readonly [string, string] => !!x);
+  return entries.length ? Object.fromEntries(entries) : undefined;
+}
 
 export async function startOtel() {
   if (sdk) return;
@@ -14,7 +29,7 @@ export async function startOtel() {
   const endpoint = env.OTEL_EXPORTER_OTLP_ENDPOINT || 'http://localhost:4318';
   const serviceName = env.OTEL_SERVICE_NAME || 'gateway';
   const deployment = env.NODE_ENV || 'development';
-  const version = (pkg as any).version || '0.0.0';
+  const version = process.env.npm_package_version || '0.0.0';
 
   const base = Resource.default();
   const svc = new Resource({
@@ -27,7 +42,7 @@ export async function startOtel() {
     resource: base.merge(svc),
     traceExporter: new OTLPTraceExporter({
       url: `${endpoint}/v1/traces`,
-      headers: env.OTEL_EXPORTER_OTLP_HEADERS, // opcional
+      headers: parseOtlpHeaders(env.OTEL_EXPORTER_OTLP_HEADERS),
     }),
     instrumentations: [
       getNodeAutoInstrumentations({
