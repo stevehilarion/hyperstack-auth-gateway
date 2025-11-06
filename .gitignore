@@ -28,6 +28,10 @@ test-output/
 npm-debug.log*
 yarn-error.log*
 debug.log
+out-tsc/
+*.tsbuildinfo
+apps/**/src/**/*.d.ts
+apps/**/src/**/*.d.ts.map
 
 # ─── Docker / Volúmenes locales ───────────────────────────
 docker-data/
@@ -40,3 +44,5 @@ Thumbs.db
 
 # Nx cache
 .nx/
+# binarios locales
+bin/
