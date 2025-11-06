@@ -1,0 +1,204 @@
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 640 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (3ced0b85f5090e5f)
+[0K
+[2m[32m———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5101  - [39m10/31/2025, 12:28:00 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +60ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-10-31T17:28:38.172Z","lvl":"INFO","rid":"4e444111-e130-418e-8e24-49b8fc5186ad","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T17:28:38.174Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:28:49.312Z","lvl":"INFO","rid":"61b2becf-2471-4fc7-895a-2ac1a7190125","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-10-31T17:28:49.398Z","lvl":"INFO","rid":null,"m":"POST","p":"/auth/register","s":201,"d":86,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:28:53.040Z","lvl":"INFO","rid":"7dc228b8-ab67-4d0f-84cd-d992c58c1ed4","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-10-31T17:28:53.110Z","lvl":"INFO","rid":null,"m":"POST","p":"/auth/login","s":201,"d":70,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:00.716Z","lvl":"INFO","rid":"cac13396-2d78-4a45-a1f3-e8091bde82c4","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:00.717Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:00.724Z","lvl":"INFO","rid":"bed97328-74e8-4729-accc-46dfa3fbe734","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:00.728Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:09.040Z","lvl":"INFO","rid":"demo-abc","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:09.042Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:14.907Z","lvl":"INFO","rid":"demo-direct","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:14.909Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:24.133Z","lvl":"INFO","rid":"e1c52618-161a-4d78-839f-1e01f0a5ec69","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:24.134Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:29:34.660Z","lvl":"INFO","rid":"0783f0e7-1225-4032-b9a8-858c874def58","m":"POST","p":"/auth/refresh","msg":"HTTP request start"}
+{"t":"2025-10-31T17:29:34.674Z","lvl":"INFO","rid":null,"m":"POST","p":"/auth/refresh","s":200,"d":14,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:16.276Z","lvl":"INFO","rid":"526572ba-350c-4684-b551-4f8166ec7944","m":"POST","p":"/auth/refresh","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:16.283Z","lvl":"ERROR","rid":null,"m":"POST","p":"/auth/refresh","s":200,"d":7,"err":"Refresh reuse detected (session revoked)","msg":"HTTP request error"}
+{"t":"2025-10-31T17:30:22.085Z","lvl":"INFO","rid":"637c1fac-bdcb-4391-a93f-90fec6a69f9b","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.088Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.094Z","lvl":"INFO","rid":"1fe5226d-6def-4bd5-b031-cd150b3677c5","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.096Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.101Z","lvl":"INFO","rid":"039abd92-4e47-4da9-bd24-b9d8fe24d880","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.103Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.108Z","lvl":"INFO","rid":"17332bc6-84a6-418c-919a-e0c6428f9757","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.110Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.115Z","lvl":"INFO","rid":"99a8fc0a-d4bc-49a3-bade-dd9c43d9c662","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.117Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.122Z","lvl":"INFO","rid":"d6814099-222c-43ef-ada1-10ddaba1c6a7","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.123Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.130Z","lvl":"INFO","rid":"f2ed1516-b89c-4d47-9bbe-0333d02feb6f","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.133Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.137Z","lvl":"INFO","rid":"d531ac9f-f300-416a-b24f-fea756a1f4ff","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.140Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.144Z","lvl":"INFO","rid":"398f2cf4-d0fc-4644-be9f-e8cf60ac4e96","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.146Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.151Z","lvl":"INFO","rid":"9c6cae1e-2acf-41b4-9d89-fba14003d6db","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.153Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.158Z","lvl":"INFO","rid":"a6a747d9-30fb-491d-ba43-2b483f0343af","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.160Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.165Z","lvl":"INFO","rid":"7ba240b7-33c1-4baf-a7a6-9b3d1eb8af94","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.166Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.170Z","lvl":"INFO","rid":"94b17223-c0a3-40ae-b1c3-d0321cf58c43","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.172Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.178Z","lvl":"INFO","rid":"fd8aead3-8e23-44ea-a113-c5c3ae21b597","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.180Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.184Z","lvl":"INFO","rid":"1275cea9-f2e6-4bd0-b724-4ff37b36abc3","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.186Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.191Z","lvl":"INFO","rid":"61745a36-d41b-4962-a0ce-b190eb7628de","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.193Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.199Z","lvl":"INFO","rid":"7bb2fd41-410e-46cd-bc2e-c063b44fd240","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.201Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.205Z","lvl":"INFO","rid":"4f13fd4e-e6d3-4d78-b934-a6e442ef89a3","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.207Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.211Z","lvl":"INFO","rid":"9be75750-0c92-4b99-a5a7-714e4c90383f","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.213Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.218Z","lvl":"INFO","rid":"45ab815e-3909-482e-9497-7d45baebc2a0","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.220Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.225Z","lvl":"INFO","rid":"86935532-e7c3-42f6-b6e9-37068abff7e6","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.227Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.232Z","lvl":"INFO","rid":"ba62adad-b2c0-4545-8070-df5c0a8d12af","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.234Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.238Z","lvl":"INFO","rid":"c4c2a284-137b-4aa5-9cd3-40395117aa74","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.240Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.244Z","lvl":"INFO","rid":"97c356da-749c-4a89-97e3-e66c8cdbc01e","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.246Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.251Z","lvl":"INFO","rid":"69a17d3f-01bb-4ddd-b090-b721c46ee7cc","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.252Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.257Z","lvl":"INFO","rid":"1f72bc95-1b07-42ba-a916-95501a075437","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.258Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.263Z","lvl":"INFO","rid":"d84b7f06-a870-47c3-bae2-c9bdef0f7b4e","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.265Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.269Z","lvl":"INFO","rid":"a7c98848-2515-454b-897a-bdbf1687793e","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.270Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.275Z","lvl":"INFO","rid":"d8c6835d-99a7-4a2f-b971-9ab3d9842c5c","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.276Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.281Z","lvl":"INFO","rid":"9669a0c6-3472-4727-87a1-e8151f208893","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.282Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.286Z","lvl":"INFO","rid":"a748aec1-1e54-40e8-b0c3-d16647678f52","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.288Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.292Z","lvl":"INFO","rid":"bfc28b17-a359-410c-9d73-be7ee64094c0","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.294Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.298Z","lvl":"INFO","rid":"a95e3f57-213d-4450-a23f-12e523a08261","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.300Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.304Z","lvl":"INFO","rid":"45835701-b6ff-42ee-8c04-50ab87ee7026","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.305Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.310Z","lvl":"INFO","rid":"4a45d047-3578-4e34-a480-69f79d71ea9d","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.311Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.316Z","lvl":"INFO","rid":"7fccabca-e53f-4ecc-8a8e-40e7f10310ce","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.317Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.321Z","lvl":"INFO","rid":"b405a838-266e-43f9-866b-acdea053b49d","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.323Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.328Z","lvl":"INFO","rid":"d1c67039-7124-40ba-b223-fda81f2b2989","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.330Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.334Z","lvl":"INFO","rid":"be2fe273-7bd1-4c61-94a1-bda76572a2cc","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.336Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.341Z","lvl":"INFO","rid":"94496b57-b0b2-4dc6-a579-82d571c237d3","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.342Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.347Z","lvl":"INFO","rid":"af9e640e-5ec3-4bc8-b7c7-ff8f09cb255a","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.348Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.352Z","lvl":"INFO","rid":"0ed8b495-50b6-4355-9137-faaf4bcf7b38","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.354Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.358Z","lvl":"INFO","rid":"53517934-759c-450d-8473-487a415c8ec2","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.360Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.365Z","lvl":"INFO","rid":"824141c2-b952-483d-a6af-d831f38cf5e9","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.366Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.370Z","lvl":"INFO","rid":"5b3855ec-bbc5-4b30-b6bc-b72441b3f371","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.372Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.376Z","lvl":"INFO","rid":"d59a7fa7-5511-4aad-ac47-a3d8e1d117f6","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.378Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.382Z","lvl":"INFO","rid":"2f5f0f76-c6b3-435e-8169-4afc004dfbe5","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.384Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.388Z","lvl":"INFO","rid":"08ca9e0a-104d-49c6-9109-22b8acc0be6b","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.390Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.395Z","lvl":"INFO","rid":"d46f5786-6cfd-4a67-b5a7-dc4ac5f28b26","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.397Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.401Z","lvl":"INFO","rid":"0225d1cb-3c22-4772-a9af-38b0218fb88a","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.402Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.406Z","lvl":"INFO","rid":"ad32a9b7-b37b-4061-802a-b24e422e0482","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.408Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.413Z","lvl":"INFO","rid":"14252ce0-cb3a-43fb-ae02-dc0aef182d29","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.415Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.419Z","lvl":"INFO","rid":"6651059c-83a3-419e-80c3-df310b1518bb","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.420Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.424Z","lvl":"INFO","rid":"8cb0f9e8-136a-45e1-bb2f-5f74c709c151","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.426Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.431Z","lvl":"INFO","rid":"2613d96a-58de-43f1-bd0d-6de8b667b686","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.432Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.436Z","lvl":"INFO","rid":"da6186ee-78fd-47e3-930d-5cbfeb459fa3","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.438Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.444Z","lvl":"INFO","rid":"6a8675ab-d51a-4915-9674-295a8fad5e41","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.446Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.450Z","lvl":"INFO","rid":"88115783-aa85-4ece-964c-9b1084745136","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.451Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.456Z","lvl":"INFO","rid":"9108f4d8-02c6-4a2b-9da6-4ca1b386376a","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.458Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.462Z","lvl":"INFO","rid":"9b1476a8-24bb-40e0-b5f7-c714b64b9020","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.464Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.468Z","lvl":"INFO","rid":"220aec85-7fa1-49f9-9c53-b8425cfcfaa8","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.469Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.474Z","lvl":"INFO","rid":"8cd356a4-ef95-4cc0-9796-789644a66b40","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.475Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.479Z","lvl":"INFO","rid":"298c2b55-0e5d-4150-97d6-56e1048d96bf","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.481Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.485Z","lvl":"INFO","rid":"2def8213-1b1f-4868-aa05-c6eb3e0e9abe","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.487Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.492Z","lvl":"INFO","rid":"4e058530-c76d-4156-b66a-ad9fe4111553","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.493Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.498Z","lvl":"INFO","rid":"7e0a4533-1ca1-45d2-83d4-33b0d416e138","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.499Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.503Z","lvl":"INFO","rid":"6f7d9d26-5180-444d-808c-85f95e1bde52","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.505Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.510Z","lvl":"INFO","rid":"b7238bd1-b6d4-4149-9f1d-4286892ae294","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.512Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.516Z","lvl":"INFO","rid":"1341f197-1bd3-4874-ab07-18fd19096eb0","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.518Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:30:22.522Z","lvl":"INFO","rid":"48a05f6e-a2ed-4fbe-9fb5-e4d00b46b363","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:30:22.524Z","lvl":"INFO","rid":null,"m":"GET","p":"/auth/me","s":200,"d":2,"msg":"HTTP request end"}
+^[[A^[[A^[[A            ^C[1m[31mWatch error: Daemon closed the connection[39m[22m

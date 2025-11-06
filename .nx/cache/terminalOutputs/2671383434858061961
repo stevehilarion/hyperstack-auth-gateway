@@ -1,0 +1,400 @@
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development  [2m[local cache][22m
+
+> webpack-cli build --node-env=development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (093c04a013505617)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (184ms)[22m[0K
+[2m[22m
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: ⚙️  override existing env vars with { override: true }
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +3ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 14472  - [39m10/31/2025, 1:37:25 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +58ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-10-31T18:37:28.445Z","lvl":"INFO","rid":"1e1131ca-2965-4f38-8c72-9a1e062c7bdb","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:37:28.450Z","lvl":"INFO","rid":"1e1131ca-2965-4f38-8c72-9a1e062c7bdb","m":"GET","p":"/auth/health","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:37:34.882Z","lvl":"INFO","rid":"9b223301-23b6-4a85-b59f-19bdf7e92859","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:37:34.884Z","lvl":"INFO","rid":"9b223301-23b6-4a85-b59f-19bdf7e92859","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:37:38.435Z","lvl":"INFO","rid":"7d45a486-3101-4d47-94e0-8dd7cac7f23e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:37:38.437Z","lvl":"INFO","rid":"7d45a486-3101-4d47-94e0-8dd7cac7f23e","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (093c04a013505617)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:09 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +139ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +3ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +5ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 14605  - [39m10/31/2025, 1:39:10 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +59ms[39m
+✅ Auth-service running on http://localhost:3001
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (093c04a013505617)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ✅ audit secrets and track compliance: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +14ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +3ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +2ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 14730  - [39m10/31/2025, 1:39:16 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +71ms[39m
+✅ Auth-service running on http://localhost:3001
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[36m⠋[39m Calculating the project graph on the Nx Daemon[2K[1G[36m⠙[39m Calculating the project graph on the Nx Daemon[2K[1G[36m⠹[39m Calculating the project graph on the Nx Daemon[2K[1G[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d93bdc8434ef9a95)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +3ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +1ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 14876  - [39m10/31/2025, 1:39:20 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +60ms[39m
+✅ Auth-service running on http://localhost:3001
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d93bdc8434ef9a95)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: ⚙️  suppress all logs with { quiet: true }
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +1ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 15002  - [39m10/31/2025, 1:39:26 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +64ms[39m
+✅ Auth-service running on http://localhost:3001
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (d93bdc8434ef9a95)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+
+[7m[1m[36m NX [39m[22m[27m [1mFile change detected. Restarting...[22m
+
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +11ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +6ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 15133  - [39m10/31/2025, 1:39:32 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +82ms[39m
+✅ Auth-service running on http://localhost:3001
+[36m⠋[39m Calculating the project graph on the Nx Daemon[2K[1G[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 644 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (acb295b9770d5ead)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mStarting inspector on localhost:9229 failed: address already in use[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: ⚙️  enable debug logging with { debug: true }
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +1ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 15273  - [39m10/31/2025, 1:39:35 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +62ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-10-31T18:39:55.047Z","lvl":"INFO","rid":"ccd61ae2-5351-4305-a6b6-8abb1da473bf","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:39:55.053Z","lvl":"INFO","rid":"ccd61ae2-5351-4305-a6b6-8abb1da473bf","m":"GET","p":"/auth/health","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:39:59.052Z","lvl":"INFO","rid":"12c3bdbb-7ac6-42fa-9faa-667ef03fdb63","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:39:59.054Z","lvl":"INFO","rid":"12c3bdbb-7ac6-42fa-9faa-667ef03fdb63","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:42:27.139Z","lvl":"INFO","rid":"7a52c78c-2428-42b2-a1f6-833469418df1","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:42:27.141Z","lvl":"INFO","rid":"7a52c78c-2428-42b2-a1f6-833469418df1","m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:43:26.329Z","lvl":"INFO","rid":"24905157-7c1d-468b-8dc4-7da7cfe54611","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-10-31T18:43:26.431Z","lvl":"ERROR","rid":"24905157-7c1d-468b-8dc4-7da7cfe54611","m":"POST","p":"/auth/login","s":201,"d":102,"err":"\nInvalid `prisma.user.findUnique()` invocation:\n\n\nThe table `public.users` does not exist in the current database.","msg":"HTTP request error"}
+[1m[31m[31m[Nest] 15273  - [39m[31m10/31/2025, 1:43:26 PM [31m  ERROR[39m[31m [38;5;3m[ExceptionsHandler] [39m[31mPrismaClientKnownRequestError: [39m[22m
+[1m[31mInvalid `prisma.user.findUnique()` invocation:[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mThe table `public.users` does not exist in the current database.[39m[22m
+[1m[31m    at ei.handleRequestError [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:228:13[90m)[39m[31m[39m[22m
+[1m[31m    at ei.handleAndLogRequestError [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:174:12[90m)[39m[31m[39m[22m
+[1m[31m    at ei.request [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:143:12[90m)[39m[31m[39m[22m
+[1m[31m    at a [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/getPrismaClient.ts:833:24[90m)[39m[31m[39m[22m
+[1m[31m    at LoginUserUseCase.execute [90m(/home/steven/hyperstack/[39m[31mapps/auth-service/src/use-cases/login-user.use-case.ts:24:1[90m)[39m[31m[39m[22m
+[1m[31m    at AuthController.login [90m(/home/steven/hyperstack/[39m[31mapps/auth-service/src/interfaces/http/controllers/auth.controller.ts:41:1[90m)[39m[31m {[39m[22m
+[1m[31m  code: [32m'P2021'[39m[31m,[39m[22m
+[1m[31m  meta: {[39m[22m
+[1m[31m    modelName: [32m'User'[39m[31m,[39m[22m
+[1m[31m    table: [32m'public.users'[39m[31m[39m[22m
+[1m[31m  },[39m[22m
+[1m[31m  clientVersion: [32m'6.18.0'[39m[31m[39m[22m
+[1m[31m}[39m[22m
+[1m[31m[39m[22m
+{"t":"2025-10-31T18:43:30.728Z","lvl":"INFO","rid":"a39bc596-edd3-4e7e-9fca-dde4873be1bb","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:43:30.729Z","lvl":"INFO","rid":"a39bc596-edd3-4e7e-9fca-dde4873be1bb","m":"GET","p":"/auth/.well-known/jwks.json","s":304,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:43:30.731Z","lvl":"INFO","rid":"440f84cb-d2b1-46e7-b0c0-6e487b62cde4","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:43:30.731Z","lvl":"INFO","rid":"440f84cb-d2b1-46e7-b0c0-6e487b62cde4","m":"GET","p":"/auth/.well-known/jwks.json","s":304,"d":0,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:43:53.836Z","lvl":"INFO","rid":"demo-hc","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:43:53.839Z","lvl":"INFO","rid":"demo-hc","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:44:58.198Z","lvl":"INFO","rid":"b1dc3e35-184e-4f55-b4b0-053cd4857008","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:44:58.199Z","lvl":"INFO","rid":"b1dc3e35-184e-4f55-b4b0-053cd4857008","m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:44:59.725Z","lvl":"INFO","rid":"bdaa806b-b0e1-4b11-b551-ee1310ef0bc7","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:44:59.726Z","lvl":"INFO","rid":"bdaa806b-b0e1-4b11-b551-ee1310ef0bc7","m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:45:04.053Z","lvl":"INFO","rid":"edbc0261-2bf1-4c04-8627-d12e47dd3f6e","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-10-31T18:45:04.068Z","lvl":"ERROR","rid":"edbc0261-2bf1-4c04-8627-d12e47dd3f6e","m":"POST","p":"/auth/login","s":201,"d":15,"err":"\nInvalid `prisma.user.findUnique()` invocation:\n\n\nThe table `public.users` does not exist in the current database.","msg":"HTTP request error"}
+[1m[31m[31m[Nest] 15273  - [39m[31m10/31/2025, 1:45:04 PM [31m  ERROR[39m[31m [38;5;3m[ExceptionsHandler] [39m[31mPrismaClientKnownRequestError: [39m[22m
+[1m[31mInvalid `prisma.user.findUnique()` invocation:[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31mThe table `public.users` does not exist in the current database.[39m[22m
+[1m[31m    at ei.handleRequestError [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:228:13[90m)[39m[31m[39m[22m
+[1m[31m    at ei.handleAndLogRequestError [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:174:12[90m)[39m[31m[39m[22m
+[1m[31m    at ei.request [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/RequestHandler.ts:143:12[90m)[39m[31m[39m[22m
+[1m[31m    at a [90m(/home/steven/hyperstack/[39m[31mnode_modules/[4m.pnpm[24m/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/[4m@prisma[24m/client/src/runtime/getPrismaClient.ts:833:24[90m)[39m[31m[39m[22m
+[1m[31m    at LoginUserUseCase.execute [90m(/home/steven/hyperstack/[39m[31mapps/auth-service/src/use-cases/login-user.use-case.ts:24:1[90m)[39m[31m[39m[22m
+[1m[31m    at AuthController.login [90m(/home/steven/hyperstack/[39m[31mapps/auth-service/src/interfaces/http/controllers/auth.controller.ts:41:1[90m)[39m[31m {[39m[22m
+[1m[31m  code: [32m'P2021'[39m[31m,[39m[22m
+[1m[31m  meta: {[39m[22m
+[1m[31m    modelName: [32m'User'[39m[31m,[39m[22m
+[1m[31m    table: [32m'public.users'[39m[31m[39m[22m
+[1m[31m  },[39m[22m
+[1m[31m  clientVersion: [32m'6.18.0'[39m[31m[39m[22m
+[1m[31m}[39m[22m
+[1m[31m[39m[22m
+{"t":"2025-10-31T18:45:09.109Z","lvl":"INFO","rid":"9ac9b083-5ffb-4ffd-8688-0eca79e64cb3","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:45:09.110Z","lvl":"INFO","rid":"9ac9b083-5ffb-4ffd-8688-0eca79e64cb3","m":"GET","p":"/auth/.well-known/jwks.json","s":304,"d":1,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:45:09.111Z","lvl":"INFO","rid":"1de64370-5bea-49ef-b3b5-8237442942c2","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-10-31T18:45:09.112Z","lvl":"INFO","rid":"1de64370-5bea-49ef-b3b5-8237442942c2","m":"GET","p":"/auth/.well-known/jwks.json","s":304,"d":1,"msg":"HTTP request end"}
+^C[1m[31mWatch error: Daemon closed the connection[39m[22m

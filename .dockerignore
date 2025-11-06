@@ -1,0 +1,15 @@
+.git
+.gitignore
+node_modules
+.pnpm-store
+dist
+coverage
+test-output
+.env
+.env.*
+apps/**/.env
+apps/**/.env.*
+keys
+apps/**/keys
+.prisma
+apps/**/.prisma

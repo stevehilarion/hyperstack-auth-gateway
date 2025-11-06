@@ -1,0 +1,160 @@
+[?25l
+[2m> [22m[2mnx run[22m gateway:build:development  [2m[local cache][22m
+
+> webpack-cli build --node-env=development
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 59.1 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (57d5c5467b05392c)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project gateway[39m[2m (158ms)[22m[0K
+[2m[22m
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/e76d1d72-4681-491c-9428-ce7d9dcdc7d5[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mEnvModule dependencies initialized[39m[38;5;3m +7ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/health}:[39m[38;5;3m +6ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/health, GET} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout-all, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mWhoAmIController {/api}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/whoami, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/api/sessions}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/sessions/revoke, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 6128  - [39m10/31/2025, 12:36:37 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+🚀 Gateway running on http://localhost:3000/health
+{"t":"2025-10-31T17:37:09.999Z","lvl":"INFO","rid":"demo-1","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:37:10.011Z","lvl":"INFO","rid":"demo-1","m":"GET","p":"/api/auth/me","s":200,"d":13,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.569Z","lvl":"INFO","rid":"83647552-d6e0-4933-a4ed-df6b6d9b5e86","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.579Z","lvl":"INFO","rid":"83647552-d6e0-4933-a4ed-df6b6d9b5e86","m":"GET","p":"/api/auth/me","s":200,"d":10,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.585Z","lvl":"INFO","rid":"ac3e207a-80f0-4847-bbf3-1377cb13a056","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.591Z","lvl":"INFO","rid":"ac3e207a-80f0-4847-bbf3-1377cb13a056","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.598Z","lvl":"INFO","rid":"d5fa02a6-8502-4d52-a585-d5804b464411","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.603Z","lvl":"INFO","rid":"d5fa02a6-8502-4d52-a585-d5804b464411","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.610Z","lvl":"INFO","rid":"b478f4b5-7cac-4262-937f-ffbdc5619a31","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.614Z","lvl":"INFO","rid":"b478f4b5-7cac-4262-937f-ffbdc5619a31","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.621Z","lvl":"INFO","rid":"1a644b2e-12d1-4448-ae7e-3caaecbefb88","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.626Z","lvl":"INFO","rid":"1a644b2e-12d1-4448-ae7e-3caaecbefb88","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.632Z","lvl":"INFO","rid":"eba6f2a6-febe-40dd-ba81-4a192d43dd96","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.638Z","lvl":"INFO","rid":"eba6f2a6-febe-40dd-ba81-4a192d43dd96","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.644Z","lvl":"INFO","rid":"b1e37c4a-4df6-4056-869a-662b10d4eb72","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.649Z","lvl":"INFO","rid":"b1e37c4a-4df6-4056-869a-662b10d4eb72","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.655Z","lvl":"INFO","rid":"6db120f7-e3f2-43c5-98ba-a465286edafe","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.661Z","lvl":"INFO","rid":"6db120f7-e3f2-43c5-98ba-a465286edafe","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.668Z","lvl":"INFO","rid":"38244de3-5ef4-4eca-a2b3-b984227cf732","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.673Z","lvl":"INFO","rid":"38244de3-5ef4-4eca-a2b3-b984227cf732","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.680Z","lvl":"INFO","rid":"7ad0819a-0990-401d-aadd-edc79f3ae780","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.685Z","lvl":"INFO","rid":"7ad0819a-0990-401d-aadd-edc79f3ae780","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.691Z","lvl":"INFO","rid":"e545dfcf-cbfa-4441-814c-5a3d14f6e17a","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.697Z","lvl":"INFO","rid":"e545dfcf-cbfa-4441-814c-5a3d14f6e17a","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.703Z","lvl":"INFO","rid":"ee9985bd-e0f0-4473-853a-13f5738187cc","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.708Z","lvl":"INFO","rid":"ee9985bd-e0f0-4473-853a-13f5738187cc","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.714Z","lvl":"INFO","rid":"fd92ea98-f31b-4458-979a-762085d05a0e","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.718Z","lvl":"INFO","rid":"fd92ea98-f31b-4458-979a-762085d05a0e","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.724Z","lvl":"INFO","rid":"5952a9ce-7d61-4343-b2a4-5e01e27d683b","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.729Z","lvl":"INFO","rid":"5952a9ce-7d61-4343-b2a4-5e01e27d683b","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.734Z","lvl":"INFO","rid":"75b94b33-9d81-48ae-9711-26dcb9d687c4","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.739Z","lvl":"INFO","rid":"75b94b33-9d81-48ae-9711-26dcb9d687c4","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.746Z","lvl":"INFO","rid":"02566b7b-1413-40be-851d-e33a3bf5ef0f","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.750Z","lvl":"INFO","rid":"02566b7b-1413-40be-851d-e33a3bf5ef0f","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.756Z","lvl":"INFO","rid":"78ea0488-b5f6-4c1c-92bf-6fca18a4c938","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.761Z","lvl":"INFO","rid":"78ea0488-b5f6-4c1c-92bf-6fca18a4c938","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.767Z","lvl":"INFO","rid":"235caf06-85a9-419d-b7dc-366c8ca6d0a9","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.772Z","lvl":"INFO","rid":"235caf06-85a9-419d-b7dc-366c8ca6d0a9","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.778Z","lvl":"INFO","rid":"83c5e7b3-f4d7-4f95-ad0e-28fe1cd7d789","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.783Z","lvl":"INFO","rid":"83c5e7b3-f4d7-4f95-ad0e-28fe1cd7d789","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.789Z","lvl":"INFO","rid":"16184682-13f8-45b8-9229-d91c54537542","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.793Z","lvl":"INFO","rid":"16184682-13f8-45b8-9229-d91c54537542","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.799Z","lvl":"INFO","rid":"a6a36e20-0611-4dc2-9eb9-bacd495dacf5","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.804Z","lvl":"INFO","rid":"a6a36e20-0611-4dc2-9eb9-bacd495dacf5","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.810Z","lvl":"INFO","rid":"23b1e19c-03b7-4f70-8ee1-f4a2a932c9d2","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.814Z","lvl":"INFO","rid":"23b1e19c-03b7-4f70-8ee1-f4a2a932c9d2","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.819Z","lvl":"INFO","rid":"f13f6030-b663-450c-8a6d-eda2ef89d4e5","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.823Z","lvl":"INFO","rid":"f13f6030-b663-450c-8a6d-eda2ef89d4e5","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.830Z","lvl":"INFO","rid":"f26fcccf-ed0c-4234-a156-cd82fb816470","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.834Z","lvl":"INFO","rid":"f26fcccf-ed0c-4234-a156-cd82fb816470","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.840Z","lvl":"INFO","rid":"3e905a2c-a78b-4c18-9eb3-4ebd953b5131","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.845Z","lvl":"INFO","rid":"3e905a2c-a78b-4c18-9eb3-4ebd953b5131","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.851Z","lvl":"INFO","rid":"b739a0cc-8a10-43bc-ac3b-b4d14f6d9baa","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.856Z","lvl":"INFO","rid":"b739a0cc-8a10-43bc-ac3b-b4d14f6d9baa","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.862Z","lvl":"INFO","rid":"8ebc3aff-0501-4ebf-bf2e-5163e6479a98","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.867Z","lvl":"INFO","rid":"8ebc3aff-0501-4ebf-bf2e-5163e6479a98","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.873Z","lvl":"INFO","rid":"0fee0804-d8c1-4114-a4ed-2194256c985c","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.879Z","lvl":"INFO","rid":"0fee0804-d8c1-4114-a4ed-2194256c985c","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.885Z","lvl":"INFO","rid":"ac53639f-aa62-48f5-97aa-f4b3f4e4a8f1","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.889Z","lvl":"INFO","rid":"ac53639f-aa62-48f5-97aa-f4b3f4e4a8f1","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.895Z","lvl":"INFO","rid":"6c8f0656-66c4-4a1c-99dd-876b9b4f35fb","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.900Z","lvl":"INFO","rid":"6c8f0656-66c4-4a1c-99dd-876b9b4f35fb","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.905Z","lvl":"INFO","rid":"16c2b5ad-9c54-4706-bfa8-ba64b4d0fb55","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.911Z","lvl":"INFO","rid":"16c2b5ad-9c54-4706-bfa8-ba64b4d0fb55","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.917Z","lvl":"INFO","rid":"c3ec603f-4d8b-4a07-b8b3-bbf8a50d7acb","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.922Z","lvl":"INFO","rid":"c3ec603f-4d8b-4a07-b8b3-bbf8a50d7acb","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.929Z","lvl":"INFO","rid":"10207d5c-c086-48aa-857f-b62a5004b797","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.934Z","lvl":"INFO","rid":"10207d5c-c086-48aa-857f-b62a5004b797","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.941Z","lvl":"INFO","rid":"ae182284-ec70-4cf9-af7e-70947207fa50","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.946Z","lvl":"INFO","rid":"ae182284-ec70-4cf9-af7e-70947207fa50","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.952Z","lvl":"INFO","rid":"3b7a42e3-f039-48cb-a11f-3ac2b272e4a2","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.958Z","lvl":"INFO","rid":"3b7a42e3-f039-48cb-a11f-3ac2b272e4a2","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.966Z","lvl":"INFO","rid":"70e441bf-61f1-465b-aab1-d7fe8f15c866","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.972Z","lvl":"INFO","rid":"70e441bf-61f1-465b-aab1-d7fe8f15c866","m":"GET","p":"/api/auth/me","s":200,"d":6,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.979Z","lvl":"INFO","rid":"49620598-72da-47d8-8aaf-d32f11b80627","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.983Z","lvl":"INFO","rid":"49620598-72da-47d8-8aaf-d32f11b80627","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:02.990Z","lvl":"INFO","rid":"fe7f65d9-b674-409e-bbee-0158b35d34a7","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:02.995Z","lvl":"INFO","rid":"fe7f65d9-b674-409e-bbee-0158b35d34a7","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.001Z","lvl":"INFO","rid":"051282ed-b394-4ece-af10-51d78fad091b","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.006Z","lvl":"INFO","rid":"051282ed-b394-4ece-af10-51d78fad091b","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.013Z","lvl":"INFO","rid":"6b7405e4-9768-4829-a5ee-b913391d0b64","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.018Z","lvl":"INFO","rid":"6b7405e4-9768-4829-a5ee-b913391d0b64","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.025Z","lvl":"INFO","rid":"67c809d9-a0c2-4f02-8efb-31678ef4a96f","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.030Z","lvl":"INFO","rid":"67c809d9-a0c2-4f02-8efb-31678ef4a96f","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.036Z","lvl":"INFO","rid":"764a9f7e-9082-4eae-9185-71ff4b60719c","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.041Z","lvl":"INFO","rid":"764a9f7e-9082-4eae-9185-71ff4b60719c","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.047Z","lvl":"INFO","rid":"1ac7ccf5-9b99-4a33-bccd-ca06119a4ff8","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.052Z","lvl":"INFO","rid":"1ac7ccf5-9b99-4a33-bccd-ca06119a4ff8","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.058Z","lvl":"INFO","rid":"2347266a-389c-40bf-a751-23e13a810446","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.062Z","lvl":"INFO","rid":"2347266a-389c-40bf-a751-23e13a810446","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.068Z","lvl":"INFO","rid":"e0f987b9-340b-4cc9-81f3-ca5004707397","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.072Z","lvl":"INFO","rid":"e0f987b9-340b-4cc9-81f3-ca5004707397","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.078Z","lvl":"INFO","rid":"7530a299-baab-4994-92e6-638abc033cc9","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.082Z","lvl":"INFO","rid":"7530a299-baab-4994-92e6-638abc033cc9","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.088Z","lvl":"INFO","rid":"93e1eac0-3880-4245-97e7-473d4dc10833","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.093Z","lvl":"INFO","rid":"93e1eac0-3880-4245-97e7-473d4dc10833","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.098Z","lvl":"INFO","rid":"3783e326-b528-4a16-905e-799a2f63a0c4","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.102Z","lvl":"INFO","rid":"3783e326-b528-4a16-905e-799a2f63a0c4","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.107Z","lvl":"INFO","rid":"8577ee34-a8ee-4643-a131-81c03cd8390c","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.111Z","lvl":"INFO","rid":"8577ee34-a8ee-4643-a131-81c03cd8390c","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.117Z","lvl":"INFO","rid":"a429813f-cff8-4d80-9926-f176e66e1e48","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.120Z","lvl":"INFO","rid":"a429813f-cff8-4d80-9926-f176e66e1e48","m":"GET","p":"/api/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.126Z","lvl":"INFO","rid":"1a93d52e-60b6-4c63-85e0-264736ba373e","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.130Z","lvl":"INFO","rid":"1a93d52e-60b6-4c63-85e0-264736ba373e","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.135Z","lvl":"INFO","rid":"ebf8ab8e-4c34-402b-8a9d-e1d6581a3ef1","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.140Z","lvl":"INFO","rid":"ebf8ab8e-4c34-402b-8a9d-e1d6581a3ef1","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.146Z","lvl":"INFO","rid":"b39a03f0-ae76-4fc7-8e6a-0a8d104c4e24","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.149Z","lvl":"INFO","rid":"b39a03f0-ae76-4fc7-8e6a-0a8d104c4e24","m":"GET","p":"/api/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.155Z","lvl":"INFO","rid":"a017a655-33fc-448d-8655-f3d967f8daa2","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.160Z","lvl":"INFO","rid":"a017a655-33fc-448d-8655-f3d967f8daa2","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.166Z","lvl":"INFO","rid":"1d155bae-efaf-4650-9e0c-35d828853c09","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.170Z","lvl":"INFO","rid":"1d155bae-efaf-4650-9e0c-35d828853c09","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.176Z","lvl":"INFO","rid":"bf88c940-efed-46b7-83cb-3cc67b42ee2f","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.181Z","lvl":"INFO","rid":"bf88c940-efed-46b7-83cb-3cc67b42ee2f","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.186Z","lvl":"INFO","rid":"e7987f1f-9ca8-40e8-a06d-784a16de3d29","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.189Z","lvl":"INFO","rid":"e7987f1f-9ca8-40e8-a06d-784a16de3d29","m":"GET","p":"/api/auth/me","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.196Z","lvl":"INFO","rid":"82eeb2c2-2366-4848-8f74-0c0ade1f58c4","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.200Z","lvl":"INFO","rid":"82eeb2c2-2366-4848-8f74-0c0ade1f58c4","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.204Z","lvl":"INFO","rid":"59345f24-3eed-405b-b0cd-f16c15800c05","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.209Z","lvl":"INFO","rid":"59345f24-3eed-405b-b0cd-f16c15800c05","m":"GET","p":"/api/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-10-31T17:43:03.214Z","lvl":"INFO","rid":"107ea955-eedd-4b87-a9f2-8faf2e5f4083","m":"GET","p":"/api/auth/me","msg":"HTTP request start"}
+{"t":"2025-10-31T17:43:03.218Z","lvl":"INFO","rid":"107ea955-eedd-4b87-a9f2-8faf2e5f4083","m":"GET","p":"/api/auth/me","s":200,"d":4,"msg":"HTTP request end"}
+^C

@@ -1,0 +1,34 @@
+> webpack-cli build --node-env=production
+
+[webpack-cli] [31mError: Cannot find module 'swc-loader'
+Require stack:
+- /home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/compiler-loaders.js
+- /home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/apply-base-config.js
+- /home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/nx-app-webpack-plugin.js
+- /home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/app-plugin.js
+- /home/steven/hyperstack/apps/gateway/webpack.config.js
+- /home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/lib/webpack-cli.js
+- /home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/lib/bootstrap.js
+- /home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/bin/cli.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1207:15)
+    at Function.resolve (node:internal/modules/helpers:193:19)
+    at createLoaderFromCompiler (/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/compiler-loaders.js:11:33)
+    at applyNxDependentConfig (/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/apply-base-config.js:368:61)
+    at applyBaseConfig (/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/apply-base-config.js:42:5)
+    at NxAppWebpackPlugin.apply (/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/nx-app-webpack-plugin.js:31:49)
+    at createCompiler (/home/steven/hyperstack/node_modules/.pnpm/webpack@5.102.1_@swc+core@1.5.29_@swc+helpers@0.5.17__webpack-cli@5.1.4/node_modules/webpack/lib/webpack.js:86:12)
+    at create (/home/steven/hyperstack/node_modules/.pnpm/webpack@5.102.1_@swc+core@1.5.29_@swc+helpers@0.5.17__webpack-cli@5.1.4/node_modules/webpack/lib/webpack.js:171:16)
+    at webpack (/home/steven/hyperstack/node_modules/.pnpm/webpack@5.102.1_@swc+core@1.5.29_@swc+helpers@0.5.17__webpack-cli@5.1.4/node_modules/webpack/lib/webpack.js:179:47)
+    at WebpackCLI.f [as webpack] (/home/steven/hyperstack/node_modules/.pnpm/webpack@5.102.1_@swc+core@1.5.29_@swc+helpers@0.5.17__webpack-cli@5.1.4/node_modules/webpack/lib/index.js:99:21) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/compiler-loaders.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/lib/apply-base-config.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/src/plugins/nx-webpack-plugin/nx-app-webpack-plugin.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/@nx+webpack@22.0.1_@babel+traverse@7.28.5_@swc-node+register@1.9.2_@swc+core@1.5.29_@sw_8a24d17f6aad90e21725c5c411a5649c/node_modules/@nx/webpack/app-plugin.js',
+    '/home/steven/hyperstack/apps/gateway/webpack.config.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/lib/webpack-cli.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/lib/bootstrap.js',
+    '/home/steven/hyperstack/node_modules/.pnpm/webpack-cli@5.1.4_webpack@5.102.1/node_modules/webpack-cli/bin/cli.js'
+  ]
+}[39m

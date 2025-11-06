@@ -1,0 +1,19 @@
+> webpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 73.9 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/infrastructure/concurrency/bulkhead.ts[39m[22m
+[1mModule build [1m[31mfailed[39m[22m[1m (from ../../node_modules/.pnpm/ts-loader@9.5.4_typescript@5.9.3_webpack@5.102.1/node_modules/ts-loader/index.js):
+TypeError: Cannot read properties of undefined (reading 'includes')
+    at normalizeSlashes (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:8845:15)
+    at getNormalizedAbsolutePath (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:8891:12)
+    at getLocalModuleSpecifier (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:50132:25)
+    at computeModuleSpecifiers (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:50077:19)
+    at getModuleSpecifiersWithCacheInfo (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:50011:18)
+    at getModuleSpecifiers (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:49978:10)
+    at getSpecifierForModuleSymbol (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:57601:27)
+    at createExpressionFromSymbolChain (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:57860:29)
+    at symbolToExpression (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:57847:14)
+    at symbolToNode (/home/steven/hyperstack/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js:55645:14)[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (65403f88dabab9cd)

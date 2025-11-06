@@ -1,0 +1,52 @@
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development  [2m[local cache][22m
+
+> webpack-cli build --node-env=development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 643 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (c9188b0bc1e0c461)
+[0K
+[2m[32m————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (181ms)[22m[0K
+[2m[22m
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/c6ed191c-6b7e-450c-ba79-f7b3410793df[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (15) from .env.local -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 10574  - [39m10/31/2025, 1:14:55 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +70ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-10-31T18:15:04.145Z","lvl":"INFO","rid":"a8237464-931b-4b08-8b35-b48273e43825","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:15:04.152Z","lvl":"INFO","rid":"a8237464-931b-4b08-8b35-b48273e43825","m":"GET","p":"/auth/health","s":200,"d":7,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:15:58.865Z","lvl":"INFO","rid":"ce5c9d00-e576-4236-a8e5-23caf18b9ba6","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:15:58.868Z","lvl":"INFO","rid":"ce5c9d00-e576-4236-a8e5-23caf18b9ba6","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:16:04.424Z","lvl":"INFO","rid":"e32256bc-3ec9-42d7-bb1a-d8b6d37f247e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:16:04.426Z","lvl":"INFO","rid":"e32256bc-3ec9-42d7-bb1a-d8b6d37f247e","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-10-31T18:16:08.965Z","lvl":"INFO","rid":"3fb7c71e-6947-45ff-be6c-0eb89a2cca3b","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-10-31T18:16:08.967Z","lvl":"INFO","rid":"3fb7c71e-6947-45ff-be6c-0eb89a2cca3b","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+^C[1m[31mWatch error: Daemon closed the connection[39m[22m

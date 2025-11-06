@@ -1,0 +1,29 @@
+> webpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 90.6 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/metrics.ts[39m[22m [1m[32m5:46-68[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'prom-client' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/otel.ts[39m[22m [1m[32m5:19-53[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/sdk-node' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/otel.ts[39m[22m [1m[32m6:37-89[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/auto-instrumentations-node' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/otel.ts[39m[22m [1m[32m7:35-85[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/exporter-trace-otlp-http' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/otel.ts[39m[22m [1m[32m8:20-55[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/resources' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/otel.ts[39m[22m [1m[32m9:31-77[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/semantic-conventions' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/upstream.ts[39m[22m [1m[32m6:46-68[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve 'prom-client' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/observability/upstream.ts[39m[22m [1m[32m8:14-43[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/api' in '/home/steven/hyperstack/apps/gateway/src/observability'[39m[22m
+
+webpack compiled with [1m[31m8 errors[39m[22m (8a8fd564f4b16b86)

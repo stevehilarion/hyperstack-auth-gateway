@@ -1,0 +1,86 @@
+version: '3.9'
+
+networks:
+  backend-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  prometheus_data:
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: hyperstack-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hyperstack_auth
+      POSTGRES_USER: hyperstack
+      POSTGRES_PASSWORD: hyperstack
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U hyperstack -d hyperstack_auth']
+      interval: 3s
+      timeout: 2s
+      retries: 10
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: [backend-net]
+
+  redis:
+    image: redis:7-alpine
+    container_name: hyperstack-redis
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "ping"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks: [backend-net]
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    container_name: hyperstack-prometheus
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=15d
+      - --web.enable-lifecycle
+    volumes:
+      - ./apps/gateway/src/observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks: [backend-net]
+  otel-collector:
+    image: otel/opentelemetry-collector:0.96.0
+    container_name: hyperstack-otel-collector
+    restart: unless-stopped
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    ports:
+      - "4318:4318"
+      - "4317:4317"
+    volumes:
+      - ./apps/gateway/src/observability/otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    networks: [backend-net]
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    container_name: hyperstack-jaeger
+    restart: unless-stopped
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - "16686:16686"
+      - "14250:14250"
+      - "14268:14268"
+    networks: [backend-net]

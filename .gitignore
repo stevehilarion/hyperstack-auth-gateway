@@ -1,44 +1,39 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ─── Env & Secrets ─────────────────────────────────────────
+.env
+.env.*            # excepto .env.example (ver override abajo)
+apps/**/.env
+apps/**/.env.*
+!*.env.example
 
-# compiled output
-dist
-tmp
-out-tsc
+# Claves / certificados
+keys/
+apps/**/keys/
 
-# dependencies
-node_modules
+# ─── Prisma ────────────────────────────────────────────────
+.prisma/
+apps/**/.prisma/
+apps/**/src/generated/prisma/
+apps/**/node_modules/.prisma/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# ─── Nx / pnpm caches ─────────────────────────────────────
+.pnpm-store/
+node_modules/
+pnpm-lock.yaml      # si NO quieres lock en repo compartido; si lo quieres, elimina esta línea
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# ─── Builds / Artefactos ──────────────────────────────────
+dist/
+coverage/
+test-output/
+*.log
+npm-debug.log*
+yarn-error.log*
+debug.log
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# ─── Docker / Volúmenes locales ───────────────────────────
+docker-data/
+**/docker/*.env
+**/docker/*.pem
 
-# System Files
+# ─── SO / IDE ─────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-
-.nx/cache
-.nx/workspace-data
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md

@@ -1,0 +1,8 @@
+> webpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 73.8 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/infrastructure/http/auth-proxy.service.ts[39m[22m [1m[32m8:19-40[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve './bulkhead' in '/home/steven/hyperstack/apps/gateway/src/infrastructure/http'[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (668b41683fcba645)

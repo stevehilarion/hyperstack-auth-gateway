@@ -1,0 +1,267 @@
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development  [2m[local cache][22m
+
+> webpack-cli build --node-env=development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 645 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (8b0102864257cbf8)
+[0K
+[2m[32m———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (214ms)[22m[0K
+[2m[22m
+[2mNx read the output from the cache instead of running the command for 1 out of 1 tasks.[22m[0K
+[0K
+[0J[?25h[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/b058191d-af61-498a-bd42-da42996cb76a[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (15) from .env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (19) from .env.local -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (11) from apps/auth-service/.env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +2ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 14167  - [39m11/04/2025, 2:59:45 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +72ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-11-04T20:00:41.797Z","lvl":"INFO","rid":"689910fe-f05a-4b4c-abcc-f102d11c2eba","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.804Z","lvl":"INFO","rid":"689910fe-f05a-4b4c-abcc-f102d11c2eba","m":"GET","p":"/auth/health","s":200,"d":8,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.824Z","lvl":"INFO","rid":"d4cc086c-d198-4d67-93c2-1096604370d7","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.826Z","lvl":"INFO","rid":"d4cc086c-d198-4d67-93c2-1096604370d7","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.839Z","lvl":"INFO","rid":"8a51ae8b-c902-4e4c-b88a-a84bed384572","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.842Z","lvl":"INFO","rid":"8a51ae8b-c902-4e4c-b88a-a84bed384572","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.855Z","lvl":"INFO","rid":"647188fd-0acc-4c8b-ba81-065c90337d6d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.858Z","lvl":"INFO","rid":"647188fd-0acc-4c8b-ba81-065c90337d6d","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.869Z","lvl":"INFO","rid":"499fa57b-923c-4cc2-9967-ef3081466b1e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.872Z","lvl":"INFO","rid":"499fa57b-923c-4cc2-9967-ef3081466b1e","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.883Z","lvl":"INFO","rid":"20d2f446-bdb1-4a6d-a835-d1b5434dfe8a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.885Z","lvl":"INFO","rid":"20d2f446-bdb1-4a6d-a835-d1b5434dfe8a","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.895Z","lvl":"INFO","rid":"f2d0b0f5-1cf5-452e-b47c-d0af632b705a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.897Z","lvl":"INFO","rid":"f2d0b0f5-1cf5-452e-b47c-d0af632b705a","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.907Z","lvl":"INFO","rid":"bd1cbf3c-e198-4b14-bdcb-8af6a7e0e51b","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.909Z","lvl":"INFO","rid":"bd1cbf3c-e198-4b14-bdcb-8af6a7e0e51b","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.917Z","lvl":"INFO","rid":"31afe500-1d62-44fa-86ff-e73023e8281e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.920Z","lvl":"INFO","rid":"31afe500-1d62-44fa-86ff-e73023e8281e","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.930Z","lvl":"INFO","rid":"ce38418c-e6bf-470b-a992-efabb7060b27","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.932Z","lvl":"INFO","rid":"ce38418c-e6bf-470b-a992-efabb7060b27","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.942Z","lvl":"INFO","rid":"cf928dc7-03c0-4d1f-a0f2-47861d7881c8","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.943Z","lvl":"INFO","rid":"cf928dc7-03c0-4d1f-a0f2-47861d7881c8","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.951Z","lvl":"INFO","rid":"a6686dd7-0d12-4d31-b0bb-460e7e00679c","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.954Z","lvl":"INFO","rid":"a6686dd7-0d12-4d31-b0bb-460e7e00679c","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.963Z","lvl":"INFO","rid":"96dbfd07-448e-400b-9fe7-b4019f391d07","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.965Z","lvl":"INFO","rid":"96dbfd07-448e-400b-9fe7-b4019f391d07","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.974Z","lvl":"INFO","rid":"07596795-1856-4e32-9cad-7924c8b45c70","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.976Z","lvl":"INFO","rid":"07596795-1856-4e32-9cad-7924c8b45c70","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.984Z","lvl":"INFO","rid":"2bb359cb-e98f-467f-a997-aba8d1eaa679","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.986Z","lvl":"INFO","rid":"2bb359cb-e98f-467f-a997-aba8d1eaa679","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:41.996Z","lvl":"INFO","rid":"6a0a5948-6bca-43b5-b95f-5a86f5a52f97","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:41.998Z","lvl":"INFO","rid":"6a0a5948-6bca-43b5-b95f-5a86f5a52f97","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:42.005Z","lvl":"INFO","rid":"79693f74-6183-431d-b490-b0df80da138d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.007Z","lvl":"INFO","rid":"79693f74-6183-431d-b490-b0df80da138d","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:42.016Z","lvl":"INFO","rid":"1e3a8dad-a33f-4abd-9de9-c1d6c9932595","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.017Z","lvl":"INFO","rid":"1e3a8dad-a33f-4abd-9de9-c1d6c9932595","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:42.026Z","lvl":"INFO","rid":"adea91e9-a188-423a-a1e0-2cc6ac11d314","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.028Z","lvl":"INFO","rid":"adea91e9-a188-423a-a1e0-2cc6ac11d314","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:42.036Z","lvl":"INFO","rid":"36051587-6fff-4de9-aa1a-7d0113bed6c2","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.039Z","lvl":"INFO","rid":"36051587-6fff-4de9-aa1a-7d0113bed6c2","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:00:42.061Z","lvl":"INFO","rid":"7fef46a2-7ede-41b7-a56b-daf8ba380230","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.065Z","lvl":"ERROR","rid":"7fef46a2-7ede-41b7-a56b-daf8ba380230","m":"POST","p":"/auth/login","s":201,"d":4,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:00:42.075Z","lvl":"INFO","rid":"877e0605-466f-4bab-a5aa-f35dc3007962","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.076Z","lvl":"ERROR","rid":"877e0605-466f-4bab-a5aa-f35dc3007962","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:00:42.085Z","lvl":"INFO","rid":"59551e3f-be70-4890-aa20-d7262bf29471","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.086Z","lvl":"ERROR","rid":"59551e3f-be70-4890-aa20-d7262bf29471","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:00:42.096Z","lvl":"INFO","rid":"d1186ff5-e35d-4b4f-9435-6fad9f747c24","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.096Z","lvl":"ERROR","rid":"d1186ff5-e35d-4b4f-9435-6fad9f747c24","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:00:42.107Z","lvl":"INFO","rid":"b3180d43-c41b-4866-8266-c786f65d75f5","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:00:42.108Z","lvl":"ERROR","rid":"b3180d43-c41b-4866-8266-c786f65d75f5","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:31.215Z","lvl":"INFO","rid":"6764d7bc-aedf-4c75-8af0-228406484c76","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:31.218Z","lvl":"INFO","rid":"6764d7bc-aedf-4c75-8af0-228406484c76","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:31.432Z","lvl":"INFO","rid":"def3bacf-df42-4ba1-84a5-98638f1e6cc9","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:31.434Z","lvl":"INFO","rid":"def3bacf-df42-4ba1-84a5-98638f1e6cc9","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:31.648Z","lvl":"INFO","rid":"d2567f76-039f-4796-83b3-e3821dc4b4df","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:31.650Z","lvl":"INFO","rid":"d2567f76-039f-4796-83b3-e3821dc4b4df","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:31.862Z","lvl":"INFO","rid":"cb96d034-b2ec-441c-8d34-b37b23c2c1db","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:31.865Z","lvl":"INFO","rid":"cb96d034-b2ec-441c-8d34-b37b23c2c1db","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:32.089Z","lvl":"INFO","rid":"d69a5e4b-5d40-4a42-91d5-75eb6e273f22","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:32.090Z","lvl":"INFO","rid":"d69a5e4b-5d40-4a42-91d5-75eb6e273f22","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:32.310Z","lvl":"INFO","rid":"e27e8994-e6e9-49cd-8dc6-8c4a5b5cedfa","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:32.312Z","lvl":"INFO","rid":"e27e8994-e6e9-49cd-8dc6-8c4a5b5cedfa","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:32.530Z","lvl":"INFO","rid":"8b39f4ae-116c-47c1-bf1f-8c724bbbd9b8","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:32.533Z","lvl":"INFO","rid":"8b39f4ae-116c-47c1-bf1f-8c724bbbd9b8","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:32.743Z","lvl":"INFO","rid":"ed68f4d2-8030-4c20-b064-632451b76601","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:32.745Z","lvl":"INFO","rid":"ed68f4d2-8030-4c20-b064-632451b76601","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:32.955Z","lvl":"INFO","rid":"fc56008e-c8de-47af-a530-6d7f42db325a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:32.958Z","lvl":"INFO","rid":"fc56008e-c8de-47af-a530-6d7f42db325a","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:33.170Z","lvl":"INFO","rid":"16639090-6265-4bae-a021-ce107b298d85","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:33.172Z","lvl":"INFO","rid":"16639090-6265-4bae-a021-ce107b298d85","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:33.392Z","lvl":"INFO","rid":"7d502778-f3f6-47ba-b4ea-7d594394ee76","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:33.394Z","lvl":"INFO","rid":"7d502778-f3f6-47ba-b4ea-7d594394ee76","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:33.604Z","lvl":"INFO","rid":"55aedc7d-1e0c-4166-ab23-6818ce1f8a72","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:33.606Z","lvl":"INFO","rid":"55aedc7d-1e0c-4166-ab23-6818ce1f8a72","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:33.831Z","lvl":"INFO","rid":"5239c18a-58aa-4a19-9158-272bed8b3d9a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:33.835Z","lvl":"INFO","rid":"5239c18a-58aa-4a19-9158-272bed8b3d9a","m":"GET","p":"/auth/health","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:34.051Z","lvl":"INFO","rid":"f4d8e793-864c-4be8-9c86-c46e15123273","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:34.054Z","lvl":"INFO","rid":"f4d8e793-864c-4be8-9c86-c46e15123273","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:34.272Z","lvl":"INFO","rid":"8e30e564-e0b2-4d54-8b1d-2f127f220ed0","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:34.273Z","lvl":"INFO","rid":"8e30e564-e0b2-4d54-8b1d-2f127f220ed0","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:34.486Z","lvl":"INFO","rid":"0e7499b0-3a23-4160-a5f4-7dac89800331","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:34.488Z","lvl":"INFO","rid":"0e7499b0-3a23-4160-a5f4-7dac89800331","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:34.708Z","lvl":"INFO","rid":"1929e75e-6aef-45a8-9497-f027104b037b","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:34.710Z","lvl":"INFO","rid":"1929e75e-6aef-45a8-9497-f027104b037b","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:34.935Z","lvl":"INFO","rid":"79dda962-94b4-4f6a-95f6-590699d88685","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:34.939Z","lvl":"INFO","rid":"79dda962-94b4-4f6a-95f6-590699d88685","m":"GET","p":"/auth/health","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:35.163Z","lvl":"INFO","rid":"e1064bd0-6729-4c36-a2f4-f702460f6e2f","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:35.164Z","lvl":"INFO","rid":"e1064bd0-6729-4c36-a2f4-f702460f6e2f","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:35.376Z","lvl":"INFO","rid":"e7ef5c26-1265-4614-9748-1bb2a61da42b","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:35.378Z","lvl":"INFO","rid":"e7ef5c26-1265-4614-9748-1bb2a61da42b","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:35.593Z","lvl":"INFO","rid":"1eac44a3-387d-414d-82fa-c87e69225062","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:35.595Z","lvl":"INFO","rid":"1eac44a3-387d-414d-82fa-c87e69225062","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:35.805Z","lvl":"INFO","rid":"cc3d4431-1615-4884-8628-7728d450d4fa","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:35.806Z","lvl":"INFO","rid":"cc3d4431-1615-4884-8628-7728d450d4fa","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:36.016Z","lvl":"INFO","rid":"2f341ccf-995a-4c60-813b-dd619fb921fa","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:36.018Z","lvl":"INFO","rid":"2f341ccf-995a-4c60-813b-dd619fb921fa","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:36.232Z","lvl":"INFO","rid":"fb2aba2f-6245-4550-837a-d7f6af1cab70","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:36.234Z","lvl":"INFO","rid":"fb2aba2f-6245-4550-837a-d7f6af1cab70","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:36.445Z","lvl":"INFO","rid":"4998304a-4bbb-457c-a027-1a68f5ce35e6","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:36.447Z","lvl":"INFO","rid":"4998304a-4bbb-457c-a027-1a68f5ce35e6","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:36.662Z","lvl":"INFO","rid":"78425740-0d20-4782-89e0-c54c17a8774b","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:36.665Z","lvl":"INFO","rid":"78425740-0d20-4782-89e0-c54c17a8774b","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:36.874Z","lvl":"INFO","rid":"75e5628a-f694-4e2c-9ed2-be87c2f3fd33","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:36.876Z","lvl":"INFO","rid":"75e5628a-f694-4e2c-9ed2-be87c2f3fd33","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:37.085Z","lvl":"INFO","rid":"adfe47f9-21a1-4b8b-9237-a6db75e1d267","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:37.088Z","lvl":"INFO","rid":"adfe47f9-21a1-4b8b-9237-a6db75e1d267","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:37.298Z","lvl":"INFO","rid":"9e5c639e-cc87-4c72-9278-9a5ce90ab2e0","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:37.299Z","lvl":"INFO","rid":"9e5c639e-cc87-4c72-9278-9a5ce90ab2e0","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:37.509Z","lvl":"INFO","rid":"365e49f7-9d66-4b5d-a11b-0deb29387078","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:37.511Z","lvl":"INFO","rid":"365e49f7-9d66-4b5d-a11b-0deb29387078","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:37.724Z","lvl":"INFO","rid":"baf7973d-babc-4799-8961-1cbdf9beb429","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:37.726Z","lvl":"INFO","rid":"baf7973d-babc-4799-8961-1cbdf9beb429","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:37.937Z","lvl":"INFO","rid":"df69638a-57b1-4210-8475-659417ae1f85","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:37.939Z","lvl":"INFO","rid":"df69638a-57b1-4210-8475-659417ae1f85","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:38.163Z","lvl":"INFO","rid":"7630d716-66d6-4df2-ba06-d03d43a73d8e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:38.165Z","lvl":"INFO","rid":"7630d716-66d6-4df2-ba06-d03d43a73d8e","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:38.376Z","lvl":"INFO","rid":"d5ff026b-141f-4e6d-ae92-8cfe79de65b2","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:38.378Z","lvl":"INFO","rid":"d5ff026b-141f-4e6d-ae92-8cfe79de65b2","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:38.589Z","lvl":"INFO","rid":"b3d01b3c-8516-4379-a7ed-ef7532833f43","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:38.590Z","lvl":"INFO","rid":"b3d01b3c-8516-4379-a7ed-ef7532833f43","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:38.801Z","lvl":"INFO","rid":"1c4fdb5e-9616-4580-a310-790b11ee9e3d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:38.805Z","lvl":"INFO","rid":"1c4fdb5e-9616-4580-a310-790b11ee9e3d","m":"GET","p":"/auth/health","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:39.016Z","lvl":"INFO","rid":"c090d7bd-d770-47f0-91f3-2812423f0bda","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:39.018Z","lvl":"INFO","rid":"c090d7bd-d770-47f0-91f3-2812423f0bda","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:39.231Z","lvl":"INFO","rid":"32a2c997-8969-4fda-ac77-dd0e85c1fbe4","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:39.233Z","lvl":"INFO","rid":"32a2c997-8969-4fda-ac77-dd0e85c1fbe4","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:39.444Z","lvl":"INFO","rid":"1ebf0261-da5c-458f-952d-33d047df162a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:39.446Z","lvl":"INFO","rid":"1ebf0261-da5c-458f-952d-33d047df162a","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:39.658Z","lvl":"INFO","rid":"c3011dde-2c0f-4944-a54b-bf099abb95b6","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:39.660Z","lvl":"INFO","rid":"c3011dde-2c0f-4944-a54b-bf099abb95b6","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:39.870Z","lvl":"INFO","rid":"80e64746-4e62-4fb6-be96-12ae8d0919c8","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:39.872Z","lvl":"INFO","rid":"80e64746-4e62-4fb6-be96-12ae8d0919c8","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:40.082Z","lvl":"INFO","rid":"28c3b0bf-bde1-4594-9066-64e26e37ef8a","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:40.085Z","lvl":"INFO","rid":"28c3b0bf-bde1-4594-9066-64e26e37ef8a","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:40.299Z","lvl":"INFO","rid":"8f418032-e91d-4cf9-8805-34e28d271130","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:40.301Z","lvl":"INFO","rid":"8f418032-e91d-4cf9-8805-34e28d271130","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:40.515Z","lvl":"INFO","rid":"61efddd4-a106-4ba9-bbc3-b753cf18a0dc","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:40.517Z","lvl":"INFO","rid":"61efddd4-a106-4ba9-bbc3-b753cf18a0dc","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:40.729Z","lvl":"INFO","rid":"360a0979-8d5c-46c2-82d9-d06b72a449aa","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:40.731Z","lvl":"INFO","rid":"360a0979-8d5c-46c2-82d9-d06b72a449aa","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:40.942Z","lvl":"INFO","rid":"790d4449-149f-464d-82f5-bead468db9aa","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:40.944Z","lvl":"INFO","rid":"790d4449-149f-464d-82f5-bead468db9aa","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:41.156Z","lvl":"INFO","rid":"776fe707-a996-4c66-b9ae-320bfbb5d94d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:41.158Z","lvl":"INFO","rid":"776fe707-a996-4c66-b9ae-320bfbb5d94d","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:41.369Z","lvl":"INFO","rid":"87767db0-2029-41d8-9320-f144f0d60179","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:41.372Z","lvl":"INFO","rid":"87767db0-2029-41d8-9320-f144f0d60179","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:41.593Z","lvl":"INFO","rid":"37e0c993-941a-4658-8203-83fc2e29088d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:41.595Z","lvl":"INFO","rid":"37e0c993-941a-4658-8203-83fc2e29088d","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:41.810Z","lvl":"INFO","rid":"1fe198e7-a368-46fe-a098-77a0f73a1219","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:41.812Z","lvl":"INFO","rid":"1fe198e7-a368-46fe-a098-77a0f73a1219","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:42.027Z","lvl":"INFO","rid":"f1d4710e-d4d3-4f60-b798-a29442c2a1e4","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:42.029Z","lvl":"INFO","rid":"f1d4710e-d4d3-4f60-b798-a29442c2a1e4","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:42.245Z","lvl":"INFO","rid":"7641882d-9062-4ba6-a483-9fb92c2c9089","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:42.247Z","lvl":"INFO","rid":"7641882d-9062-4ba6-a483-9fb92c2c9089","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:42.458Z","lvl":"INFO","rid":"e9a11b51-e055-4f15-a194-b4d517c133c9","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:42.460Z","lvl":"INFO","rid":"e9a11b51-e055-4f15-a194-b4d517c133c9","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:42.671Z","lvl":"INFO","rid":"b10f2595-e028-4821-982e-460b11d6344d","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:42.673Z","lvl":"INFO","rid":"b10f2595-e028-4821-982e-460b11d6344d","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:42.884Z","lvl":"INFO","rid":"9bc6ef3b-186a-4a6d-b1d0-232a8e4f2baf","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:42.887Z","lvl":"INFO","rid":"9bc6ef3b-186a-4a6d-b1d0-232a8e4f2baf","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:43.096Z","lvl":"INFO","rid":"95ad3e34-d104-47ee-b074-8d9f82e42990","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:43.098Z","lvl":"INFO","rid":"95ad3e34-d104-47ee-b074-8d9f82e42990","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:43.308Z","lvl":"INFO","rid":"73c2331c-4da1-43e2-b383-bbeedafd925f","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:43.310Z","lvl":"INFO","rid":"73c2331c-4da1-43e2-b383-bbeedafd925f","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:43.523Z","lvl":"INFO","rid":"a4cf47a2-b6c3-451b-8e25-0494605f46c2","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:43.526Z","lvl":"INFO","rid":"a4cf47a2-b6c3-451b-8e25-0494605f46c2","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:43.738Z","lvl":"INFO","rid":"d3f6606d-d433-4789-9294-b86569171a6e","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:43.739Z","lvl":"INFO","rid":"d3f6606d-d433-4789-9294-b86569171a6e","m":"GET","p":"/auth/health","s":200,"d":1,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:43.951Z","lvl":"INFO","rid":"19d385aa-2d33-43d9-ad8c-e8b80c6f0fc9","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:43.953Z","lvl":"INFO","rid":"19d385aa-2d33-43d9-ad8c-e8b80c6f0fc9","m":"GET","p":"/auth/health","s":200,"d":2,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:02:58.214Z","lvl":"INFO","rid":"14cd5e76-c468-4210-bd57-6fcd48b52b8c","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.215Z","lvl":"ERROR","rid":"14cd5e76-c468-4210-bd57-6fcd48b52b8c","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.429Z","lvl":"INFO","rid":"33fbe891-c95c-4757-b440-8b2a5aebbd04","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.430Z","lvl":"ERROR","rid":"33fbe891-c95c-4757-b440-8b2a5aebbd04","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.644Z","lvl":"INFO","rid":"ab82443e-cb5d-4dc5-baee-871a59dca0d6","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.645Z","lvl":"ERROR","rid":"ab82443e-cb5d-4dc5-baee-871a59dca0d6","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.855Z","lvl":"INFO","rid":"5a1aceb0-f385-4dd9-b17d-c16120468cf7","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.855Z","lvl":"ERROR","rid":"5a1aceb0-f385-4dd9-b17d-c16120468cf7","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:59.066Z","lvl":"INFO","rid":"897cff1a-e432-4539-8e05-dffc20255eb6","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:59.067Z","lvl":"ERROR","rid":"897cff1a-e432-4539-8e05-dffc20255eb6","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:59.276Z","lvl":"INFO","rid":"2e3b7e13-8159-496c-a25a-7541cc9ad6ce","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:59.277Z","lvl":"ERROR","rid":"2e3b7e13-8159-496c-a25a-7541cc9ad6ce","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:59.486Z","lvl":"INFO","rid":"2b5da3b1-3300-4234-9553-10cb5972858b","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:59.486Z","lvl":"ERROR","rid":"2b5da3b1-3300-4234-9553-10cb5972858b","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:59.694Z","lvl":"INFO","rid":"44cff5f8-45a1-4f5b-9c85-6972be89fcc1","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:59.695Z","lvl":"ERROR","rid":"44cff5f8-45a1-4f5b-9c85-6972be89fcc1","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:56.331Z","lvl":"INFO","rid":"86a92a1a-7e92-499a-8237-4e6da530241e","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:56.331Z","lvl":"ERROR","rid":"86a92a1a-7e92-499a-8237-4e6da530241e","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:56.541Z","lvl":"INFO","rid":"3a8ef658-c8e0-46b5-a49b-2491540e680e","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:56.542Z","lvl":"ERROR","rid":"3a8ef658-c8e0-46b5-a49b-2491540e680e","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:56.752Z","lvl":"INFO","rid":"972e9305-cacf-407f-b92d-51789c98bdb4","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:56.752Z","lvl":"ERROR","rid":"972e9305-cacf-407f-b92d-51789c98bdb4","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:56.968Z","lvl":"INFO","rid":"1ba18b84-9dba-47ec-9dd9-f57dc9160253","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:56.968Z","lvl":"ERROR","rid":"1ba18b84-9dba-47ec-9dd9-f57dc9160253","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:57.177Z","lvl":"INFO","rid":"57b10b17-9d17-4c4c-bb5f-e38a3d1940ac","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:57.177Z","lvl":"ERROR","rid":"57b10b17-9d17-4c4c-bb5f-e38a3d1940ac","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:57.389Z","lvl":"INFO","rid":"8e5b060b-8625-4518-908c-3c59999f3d8f","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:57.390Z","lvl":"ERROR","rid":"8e5b060b-8625-4518-908c-3c59999f3d8f","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:57.599Z","lvl":"INFO","rid":"2b608c0a-8941-41ba-b31f-79e847aace0b","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:57.600Z","lvl":"ERROR","rid":"2b608c0a-8941-41ba-b31f-79e847aace0b","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:57.812Z","lvl":"INFO","rid":"56907374-b23a-48e6-94eb-4b1cff9c98da","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:57.813Z","lvl":"ERROR","rid":"56907374-b23a-48e6-94eb-4b1cff9c98da","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.024Z","lvl":"INFO","rid":"7d243f75-8bf3-47ce-a655-7065143a046a","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.025Z","lvl":"ERROR","rid":"7d243f75-8bf3-47ce-a655-7065143a046a","m":"POST","p":"/auth/login","s":201,"d":1,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.235Z","lvl":"INFO","rid":"91cdc8fc-3613-437a-a790-35f04db56b91","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.235Z","lvl":"ERROR","rid":"91cdc8fc-3613-437a-a790-35f04db56b91","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.446Z","lvl":"INFO","rid":"60a716b9-26ee-4335-a574-2f43cf567328","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.446Z","lvl":"ERROR","rid":"60a716b9-26ee-4335-a574-2f43cf567328","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:02:58.658Z","lvl":"INFO","rid":"7cbcf7a7-d7aa-49a6-b561-ec8ae8af10d3","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-04T20:02:58.658Z","lvl":"ERROR","rid":"7cbcf7a7-d7aa-49a6-b561-ec8ae8af10d3","m":"POST","p":"/auth/login","s":201,"d":0,"err":"Bad Request Exception","msg":"HTTP request error"}
+{"t":"2025-11-04T20:03:13.383Z","lvl":"INFO","rid":"c129f6fa-bb11-4707-81eb-215d06d34ec2","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-04T20:03:13.474Z","lvl":"INFO","rid":"c129f6fa-bb11-4707-81eb-215d06d34ec2","m":"POST","p":"/auth/register","s":201,"d":91,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:03:13.786Z","lvl":"INFO","rid":"62ab8852-4963-42ef-8696-0be4a3b61f27","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-04T20:03:13.859Z","lvl":"INFO","rid":"62ab8852-4963-42ef-8696-0be4a3b61f27","m":"POST","p":"/auth/register","s":201,"d":73,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:03:14.170Z","lvl":"INFO","rid":"a1a34356-390f-4758-b44e-03367c49281b","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-04T20:03:14.240Z","lvl":"INFO","rid":"a1a34356-390f-4758-b44e-03367c49281b","m":"POST","p":"/auth/register","s":201,"d":70,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:03:14.550Z","lvl":"INFO","rid":"bd001acf-1c4d-4382-be0e-aef37c5e5ca0","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-04T20:03:14.619Z","lvl":"INFO","rid":"bd001acf-1c4d-4382-be0e-aef37c5e5ca0","m":"POST","p":"/auth/register","s":201,"d":69,"msg":"HTTP request end"}
+{"t":"2025-11-04T20:03:14.933Z","lvl":"INFO","rid":"d229565a-4c30-4df6-a145-989180ba97e0","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-04T20:03:15.005Z","lvl":"INFO","rid":"d229565a-4c30-4df6-a145-989180ba97e0","m":"POST","p":"/auth/register","s":201,"d":72,"msg":"HTTP request end"}
+^C[1m[31mWatch error: Daemon closed the connection[39m[22m

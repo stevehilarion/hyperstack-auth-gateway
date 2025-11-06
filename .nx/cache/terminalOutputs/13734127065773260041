@@ -1,0 +1,72 @@
+[?25l
+[2m> [22m[2mnx run[22m auth-service:build:development
+
+✅ Found Prisma Client directory: /home/steven/hyperstack/node_modules/.pnpm/@prisma+client@6.18.0_prisma@6.18.0_typescript@5.9.3__typescript@5.9.3/node_modules/.prisma/client
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 651 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+webpack compiled [1m[32msuccessfully[39m[22m (1cc558ed9ffa4d28)
+[0K
+[2m[32m———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————[39m[22m[0K
+[0K
+[0m[7m[1m[32m NX [39m[22m[27m[0m  [32mSuccessfully ran target [1mbuild[22m for project auth-service[39m[2m (2s)[22m[0K
+[0K
+[0J[?25h
+[0m[7m[1m[33m NX [39m[22m[27m[0m  [33mNx Cloud encountered some problems[39m
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app. (code: 401)
+
+[?25h[?25h[1m[31mDebugger listening on ws://localhost:9229/20b33be3-47e8-4253-8ef6-de0f6c1b82e2[39m[22m
+[1m[31mFor help, see: https://nodejs.org/en/docs/inspector[39m[22m
+[1m[31m[39m[22m
+[dotenv@17.2.3] injecting env (19) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (19) from .env.local -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (19) from apps/auth-service/.env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.3] injecting env (15) from apps/auth-service/.env.local -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthEnvModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthBootstrapModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthHealthController {/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/health, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/refresh, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/logout-all, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mSessionsController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/sessions/revoke, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mJwksController {/auth/.well-known}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/.well-known/jwks.json, GET} route[39m[38;5;3m +0ms[39m
+[redis] connecting to 127.0.0.1:6379
+[32m[Nest] 11515  - [39m11/05/2025, 2:31:35 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +61ms[39m
+✅ Auth-service running on http://localhost:3001
+{"t":"2025-11-05T19:31:53.185Z","lvl":"INFO","rid":"6d724c50-8cca-4f13-9b71-84a220cc4e09","m":"GET","p":"/auth/.well-known/jwks.json","msg":"HTTP request start"}
+{"t":"2025-11-05T19:31:53.187Z","lvl":"INFO","rid":"6d724c50-8cca-4f13-9b71-84a220cc4e09","m":"GET","p":"/auth/.well-known/jwks.json","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:32:09.977Z","lvl":"INFO","rid":"737a55a6-6cfd-4ab1-bc2d-579f170a4c45","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-05T19:32:09.989Z","lvl":"ERROR","rid":"737a55a6-6cfd-4ab1-bc2d-579f170a4c45","m":"POST","p":"/auth/login","s":201,"d":12,"err":"Invalid credentials","msg":"HTTP request error"}
+{"t":"2025-11-05T19:32:13.244Z","lvl":"INFO","rid":"9806a19d-6dc3-455c-85f0-7b0dd5d8bad8","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-11-05T19:32:13.244Z","lvl":"ERROR","rid":"9806a19d-6dc3-455c-85f0-7b0dd5d8bad8","m":"GET","p":"/auth/me","s":200,"d":0,"err":"Invalid or expired token","msg":"HTTP request error"}
+{"t":"2025-11-05T19:35:43.510Z","lvl":"INFO","rid":"d2a54af2-bcf8-4f11-a627-606662dc42c9","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.514Z","lvl":"INFO","rid":"d2a54af2-bcf8-4f11-a627-606662dc42c9","m":"GET","p":"/auth/health","s":200,"d":4,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:43.527Z","lvl":"INFO","rid":"35e31191-fd34-492d-80d4-074336250903","m":"POST","p":"/auth/register","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.616Z","lvl":"INFO","rid":"35e31191-fd34-492d-80d4-074336250903","m":"POST","p":"/auth/register","s":201,"d":89,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:43.625Z","lvl":"INFO","rid":"be6e6c5a-3286-498f-b021-d1773ff03bd5","m":"GET","p":"/auth/health","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.628Z","lvl":"INFO","rid":"be6e6c5a-3286-498f-b021-d1773ff03bd5","m":"GET","p":"/auth/health","s":200,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:43.638Z","lvl":"INFO","rid":"9d4a6be2-ba73-43e9-9a63-9d3e41c612db","m":"POST","p":"/auth/login","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.710Z","lvl":"INFO","rid":"9d4a6be2-ba73-43e9-9a63-9d3e41c612db","m":"POST","p":"/auth/login","s":201,"d":72,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:43.716Z","lvl":"INFO","rid":"47c69494-6589-4f14-ae5b-1fe74dac6044","m":"GET","p":"/auth/me","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.721Z","lvl":"INFO","rid":"47c69494-6589-4f14-ae5b-1fe74dac6044","m":"GET","p":"/auth/me","s":200,"d":5,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:43.729Z","lvl":"INFO","rid":"b9b1f88c-a63e-4aec-a621-0218c34acbe9","m":"POST","p":"/auth/refresh","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:43.742Z","lvl":"INFO","rid":"b9b1f88c-a63e-4aec-a621-0218c34acbe9","m":"POST","p":"/auth/refresh","s":200,"d":13,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:44.957Z","lvl":"INFO","rid":"41d9c1b6-e142-4863-815d-cd1accbf37eb","m":"POST","p":"/auth/refresh","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:44.967Z","lvl":"INFO","rid":"41d9c1b6-e142-4863-815d-cd1accbf37eb","m":"POST","p":"/auth/refresh","s":200,"d":11,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:44.975Z","lvl":"INFO","rid":"2e451d95-5b69-4643-a971-20d83873671e","m":"POST","p":"/auth/logout","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:44.978Z","lvl":"INFO","rid":"2e451d95-5b69-4643-a971-20d83873671e","m":"POST","p":"/auth/logout","s":201,"d":3,"msg":"HTTP request end"}
+{"t":"2025-11-05T19:35:44.985Z","lvl":"INFO","rid":"b595b9c9-7224-42e8-83e7-7acd88e9144e","m":"POST","p":"/auth/refresh","msg":"HTTP request start"}
+{"t":"2025-11-05T19:35:44.987Z","lvl":"ERROR","rid":"b595b9c9-7224-42e8-83e7-7acd88e9144e","m":"POST","p":"/auth/refresh","s":200,"d":2,"err":"Session revoked","msg":"HTTP request error"}
+^C[1m[31mWatch error: Daemon closed the connection[39m[22m

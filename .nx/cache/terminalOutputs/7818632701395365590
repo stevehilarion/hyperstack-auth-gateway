@@ -1,0 +1,14 @@
+> webpack-cli build --node-env=production
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 51.5 KiB [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[31mERROR[39m[22m in [1m./src/infrastructure/http/auth-proxy.service[39m[22m [1m[32m5:17[39m[22m
+[1mModule parse [1m[31mfailed[39m[22m[1m: [1m[31mUnexpected[39m[22m[1m token (5:17)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+| import { httpFetch, HttpClientOptions } from './http-client';
+| 
+> function sleep(ms: number) {
+|   return new Promise((r) => setTimeout(r, ms));
+| }[39m[22m
+
+webpack compiled with [1m[31m1 error[39m[22m (91ce01565481484b)

@@ -1,0 +1,91 @@
+> webpack-cli build --node-env=development
+
+chunk (runtime: main) [1m[32mmain.js[39m[22m (main) 6.57 MiB (javascript) 937 bytes (runtime) [1m[33m[entry][39m[22m [1m[32m[rendered][39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/build/src/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/build/src/util.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/src/util.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/@grpc+proto-loader@0.8.0/node_modules/@grpc/proto-loader/src/util.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@opentelemetry+instrumentation-winston@0.41.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation-winston/build/src/instrumentation.js[39m[22m [1m[32m124:66-109[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/winston-transport' in '/home/steven/hyperstack/node_modules/.pnpm/@opentelemetry+instrumentation-winston@0.41.0_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation-winston/build/src'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@opentelemetry+instrumentation@0.52.1_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node/instrumentation.js[39m[22m [1m[32m143:37-58[39m[22m
+[1mCritical dependency: the request of a dependency is an expression[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@opentelemetry+instrumentation@0.54.2_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/instrumentation/build/esm/platform/node/instrumentation.js[39m[22m [1m[32m139:37-58[39m[22m
+[1mCritical dependency: the request of a dependency is an expression[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/@opentelemetry+sdk-node@0.52.1_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/sdk-node/build/src/TracerProviderWithEnvExporter.js[39m[22m [1m[32m89:39-80[39m[22m
+[1mModule [1m[31mnot found[39m[22m[1m: [1m[31mError[39m[22m[1m: Can't resolve '@opentelemetry/exporter-jaeger' in '/home/steven/hyperstack/node_modules/.pnpm/@opentelemetry+sdk-node@0.52.1_@opentelemetry+api@1.9.0/node_modules/@opentelemetry/sdk-node/build/src'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/dist/helpers.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/src/helpers.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/src/helpers.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/dist/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/agent-base@7.1.4/node_modules/agent-base/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/common.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/common.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/common.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/gaxios.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/gaxios.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/gaxios.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/interceptor.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/interceptor.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/interceptor.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/retry.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/retry.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/retry.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/build/src/util.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/util.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gaxios@6.7.1/node_modules/gaxios/src/util.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/build/src/gcp-residency.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/src/gcp-residency.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/src/gcp-residency.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/build/src/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/gcp-metadata@6.1.1/node_modules/gcp-metadata/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/build/src/colours.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/colours.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/colours.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/build/src/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/build/src/logging-utils.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/logging-utils.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/google-logging-utils@0.0.2/node_modules/google-logging-utils/src/logging-utils.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/dist/index.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/src/index.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/src/index.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/dist/parse-proxy-response.js[39m[22m
+[1mModule Warning (from ../../node_modules/.pnpm/source-map-loader@5.0.0_webpack@5.102.1/node_modules/source-map-loader/dist/cjs.js):
+[1m[31mFailed[39m[22m[1m to parse source map from '/home/steven/hyperstack/node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/src/parse-proxy-response.ts' file: [1m[31mError[39m[22m[1m: ENOENT: no such file or directory, open '/home/steven/hyperstack/node_modules/.pnpm/https-proxy-agent@7.0.6/node_modules/https-proxy-agent/src/parse-proxy-response.ts'[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/require-in-the-middle@7.5.2/node_modules/require-in-the-middle/index.js[39m[22m [1m[32m73:27-34[39m[22m
+[1mCritical dependency: require function is used in a way in which dependencies cannot be statically extracted[39m[22m
+
+[1m[33mWARNING[39m[22m in [1m../../node_modules/.pnpm/require-in-the-middle@7.5.2/node_modules/require-in-the-middle/index.js[39m[22m [1m[32m75:15-22[39m[22m
+[1mCritical dependency: require function is used in a way in which dependencies cannot be statically extracted[39m[22m
+
+webpack compiled with [1m[33m23 warnings[39m[22m (0fb9ef2f9bb9b47b)
